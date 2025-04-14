@@ -1,0 +1,9 @@
+.about-card:hover {
+    transform: scale(1.1);
+    /* Kart hover olunca büyür */
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+    /* Fotoğraf hover olunca büyür */
+}
