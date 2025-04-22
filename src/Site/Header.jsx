@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Header = () => {
     const [text, setText] = useState('');
-    const fullText = 'W elcome to my personel web site!I am Ömer Faruk Baysal.';
+    const fullText = 'W elcome to my personal web site!I am Ömer Faruk Baysal.';
 
     useEffect(() => {
         let index = 0;
