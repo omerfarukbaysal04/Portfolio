@@ -53,8 +53,8 @@ const Projects = () => {
           <iframe
             width="90%"
             height="300"
-            src="https://www.youtube.com/embed/baFt7wlF0q4?autoplay=1&mute=1"
-            title="Bally Video"
+            src="https://www.youtube.com/embed/tW3ahjArIHI?autoplay=1&mute=1"
+            title="Glide Ball Video"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -64,9 +64,9 @@ const Projects = () => {
           ></iframe>
         </div>
         <div style={{ textAlign: "right", flex: 1 }}>
-          <p style={{ fontWeight: "bold", fontSize: "24px", color: "#2c3e50" }}>Bally</p>
+          <p style={{ fontWeight: "bold", fontSize: "24px", color: "#2c3e50" }}>Glide Ball</p>
           <h3 style={{ fontSize: "18px", color: "#2c3e50", lineHeight: "1.5" }}>
-            Your main goal is to finish the game by completing differently designed levels with Bally.
+            Are you ready for a physics-based platforming challenge? Glide Ball tests your reflexes with smooth controls and precise movement! Guide your ball carefully, overcome obstacles, and achieve the highest score! 🎮
             <br />
             <br />
              Game link:{" "}
@@ -141,10 +141,46 @@ Step into the shoes of a troubled yet loyal guardian, caught between the shadows
             </a>{" "}
           </h3>
         </div>
-        
       </div>
+<br />
+      <div className="about-card d-flex justify-content-left align-items-center p-4 shadow-lg mb-4" 
+        style={{
+          width: "80%",
+          borderRadius: "20px",
+          backgroundColor: "#ffffff",
+          transition: "transform 0.3s ease-in-out",
+        }}>
+        <div style={{ textAlign: "left", flex: 1 }}>
+          <p style={{ fontWeight: "bold", fontSize: "24px", color: "#2c3e50" }}>Kitap Vitrini</p>
+          <h3 style={{ fontSize: "18px", color: "#2c3e50", lineHeight: "1.5" }}>
+            It is a website made using React, ASP.Net Core and MS SQL for a university course project.
+            <br />
+            <br />
+             Project link :{" "}
+            <a href="https://github.com/omerfarukbaysal04/Kitap-Vitrini" target="_blank" rel="noopener noreferrer">
+              Kitap Vitrini
+            </a>{" "}
+          </h3>
+        </div>
+        <div style={{ flex: 1, textAlign: "right" }}>
+           <iframe
+            width="90%"
+            height="300px"
+            src="https://www.youtube.com/embed/7pRuS0D2ePo?si=SwssUum6hJnBDAuJ&autoplay=1&mute=1"
+            title="Kitap Vitrini"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{
+              borderRadius: "15px",
+            }}
+          ></iframe>
+        </div>
+      </div>
+      
     </section>
   );
 };
 
 export default Projects;
+
