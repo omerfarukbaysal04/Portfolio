@@ -18,12 +18,15 @@ const About = () => {
         <div style={{ textAlign: "left", flex: 1 }}>
           <p style={{ fontWeight: "bold", fontSize: "24px", color: "#2c3e50" }}>About me..</p>
           <h3 style={{ fontSize: "18px", color: "#2c3e50", lineHeight: "1.5" }}>
-            I am a 3rd year student of Computer Engineering at Pamukkale University.
-             I have been interested in technology and computers since my childhood and I chose this duo as my profession. 
-             I am currently working on web and game development. Also also publish my games on{" "}
+            I'm a 3rd-year Computer Engineering student at Pamukkale University and a graduate of the 3rd term of the Google Game and App Academy. <br></br>
+            <br />
+            I develop games with Unity as a hobby. So far, I’ve created four personal games, and one of them is published on the Google Play Store. I’ve also built two personal websites.Also publish my games on{" "}
             <a href="https://baysalgames.itch.io" target="_blank" rel="noopener noreferrer">
               itch.io
             </a>{" "}
+            <br />
+            <br />
+            My career goal is to specialize in cybersecurity. I’m actively learning and improving myself in this field through various courses. I enjoy both learning and creating, driven by my passion for technology.
           </h3>
         </div>
         <div style={{ flex: 1, textAlign: "right" }}>
