@@ -6,7 +6,39 @@ const Projects = () => {
   return (
     <section id="projects" className="about-section d-flex flex-column align-items-center " 
       style={{ backgroundColor: "white", minHeight: "100vh", padding: "80px 0" }}>
-      
+      <div className="about-card d-flex justify-content-right align-items-center p-4 shadow-lg" 
+        style={{
+          width: "80%",
+          borderRadius: "20px",
+          backgroundColor: "#ffffff",
+          transition: "transform 0.3s ease-in-out",
+        }}>
+          <div style={{ flex: 1, textAlign: "left" }}>
+          <img
+            className="profile-img"
+            src="/ns.png"
+            alt="ns" 
+            style={{
+              maxWidth: "80%",
+              height: "300px",
+              borderRadius: "15px",
+              transition: "transform 0.4s ease-in-out",
+            }}
+          />
+        </div>
+        <div style={{ textAlign: "right", flex: 1 }}>
+          <p style={{ fontWeight: "bold", fontSize: "24px", color: "#2c3e50" }}>Cyber Security Tools</p>
+          <h3 style={{ fontSize: "18px", color: "#2c3e50", lineHeight: "1.5" }}>
+ A collection of custom-built cybersecurity tools designed for tasks such as network scanning, MAC address manipulation, packet capturing, and port analysis. These tools showcase my practical skills in Python, networking, and penetration testing fundamentals. <br />
+            <br />
+             Project link:{" "}
+            <a href="https://github.com/omerfarukbaysal04/Cyber-Security-Tools" target="_blank" rel="noopener noreferrer">
+              Cyber Security Tools
+            </a>{" "}
+          </h3>
+        </div>
+      </div>
+      <br />
       <div className="about-card d-flex justify-content-left align-items-center p-4 shadow-lg mb-4" 
         style={{
           width: "80%",
@@ -177,10 +209,8 @@ Step into the shoes of a troubled yet loyal guardian, caught between the shadows
           ></iframe>
         </div>
       </div>
-      
     </section>
   );
 };
 
 export default Projects;
-

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Header = () => {
     const [text, setText] = useState('');
-    const fullText = 'W elcome to my personal web site!I am Ömer Faruk Baysal.';
+    const fullText = 'W elcome to my portfolio! I’m Ömer Faruk Baysal. Computer Engineering student passionate about cybersecurity and game development..';
 
     useEffect(() => {
         let index = 0;
@@ -16,7 +16,7 @@ const Header = () => {
                 }
             });
             index++;
-        }, 100); 
+        }, 75); 
 
         return () => clearInterval(interval);
     }, []); 

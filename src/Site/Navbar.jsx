@@ -1,11 +1,8 @@
 import React from "react";
 
 const Navbar = () => {
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -14,7 +11,7 @@ const Navbar = () => {
       style={{ fontFamily: "Trebuchet MS, sans-serif" }}
     >
       <div className="container">
-        <a className="navbar-brand">
+        <a className="navbar-brand" onClick={scrollToTop} style={{ cursor: "pointer" }}>
           <img
             src="/logo.png"
             alt="Logo"
@@ -34,7 +31,7 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto flex-nowrap">
-              <li className="nav-item me-3">
+            <li className="nav-item me-3">
               <a className="nav-link" href="#about">
                 About
               </a>
@@ -50,8 +47,12 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="btn btn-dark" href="/cv.pdf" download="ÖmerFarukBaysal_CV.pdf">
-               Resume
+              <a
+                className="btn btn-dark"
+                href="/cv.pdf"
+                download="ÖmerFarukBaysal_CV.pdf"
+              >
+                Resume
               </a>
             </li>
           </ul>

@@ -12,13 +12,13 @@ const Footer = () => {
         <a href="https://github.com/omerfarukbaysal04" target="_blank" rel="noopener noreferrer">
           <FaGithub className="icon" />
         </a>
-        <a href="https://www.youtube.com/@baysalgames" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.youtube.com/@omerfarukkbaysal" target="_blank" rel="noopener noreferrer">
           <FaYoutube className="icon" />
         </a>
         <a href="https://www.instagram.com/omerfarukkbaysal/" target="_blank" rel="noopener noreferrer">
           <FaInstagram className="icon" />
         </a>
-        <a href="https://x.com/baysalgames" target="_blank" rel="noopener noreferrer">
+        <a href="https://x.com/BaysalSoft" target="_blank" rel="noopener noreferrer">
           <FaTwitter className="icon" />
         </a>
         <a href="https://www.linkedin.com/in/baysal/" target="_blank" rel="noopener noreferrer">
