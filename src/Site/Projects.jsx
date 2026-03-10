@@ -41,7 +41,7 @@ const projects = [
   {
     title: 'Glide Ball',
     description: 'Are you ready for a physics-based platforming challenge? Glide Ball tests your reflexes with smooth controls and precise movement! Guide your ball carefully, overcome obstacles, and achieve the highest score! 🎮',
-    video: 'https://www.youtube.com/embed/tW3ahjArIHI?si?autoplay=1&mute=1',
+    video: 'https://www.youtube.com/embed/tW3ahjArIHI?autoplay=1&mute=1',
     tags: ['Unity', 'C#', 'Mobile', 'Physics'],
     link: 'https://play.google.com/store/apps/details?id=com.BaysalGames.Bally',
     linkText: 'Google Play Store',
