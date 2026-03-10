@@ -1,63 +1,93 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import ThemeToggle from '../components/ThemeToggle';
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      // Detect active section
+      const sections = ['about', 'skills', 'projects', 'contact'];
+      for (const id of sections.reverse()) {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 200) {
+          setActiveSection(id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setMenuOpen(false);
+  };
+
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <nav
-      className="navbar navbar-expand-lg navbar-light bg-light fixed-top"
-      style={{ fontFamily: "Trebuchet MS, sans-serif" }}
-    >
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <a className="navbar-brand" onClick={scrollToTop} style={{ cursor: "pointer" }}>
-          <img
-            src="/logo.png"
-            alt="Logo"
-            style={{ width: "60px", height: "40px", marginRight: "450px" }}
-          />
+        <a className="nav-logo" onClick={scrollToTop}>
+          <img src="/logo.png" alt="Logo" />
+          <span className="nav-logo-text">ÖMER FARUK BAYSAL</span>
         </a>
-        <a className="navbar-brand" style={{ fontWeight: "bold" }}>
-          ÖMER FARUK BAYSAL
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto flex-nowrap">
-            <li className="nav-item me-3">
-              <a className="nav-link" href="#about">
-                About
-              </a>
-            </li>
-            <li className="nav-item me-3">
-              <a className="nav-link" href="#projects">
-                Projects
-              </a>
-            </li>
-            <li className="nav-item me-3">
-              <a className="nav-link" href="#contact">
-                Contact
-              </a>
-            </li>
-            <li className="nav-item">
+
+        <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
+          {['about', 'skills', 'projects', 'contact'].map((item) => (
+            <li key={item}>
               <a
-                className="btn btn-dark"
-                href="/cv.pdf"
-                download="ÖmerFarukBaysal_CV.pdf"
+                href={`#${item}`}
+                className={activeSection === item ? 'active' : ''}
+                onClick={(e) => handleNavClick(e, item)}
               >
-                Resume
+                {item.charAt(0).toUpperCase() + item.slice(1)}
               </a>
             </li>
-          </ul>
-        </div>
+          ))}
+          <li>
+            <a className="nav-resume-btn" href="/cv.pdf" download="ÖmerFarukBaysal_CV.pdf">
+              Resume
+            </a>
+          </li>
+          <li>
+            <ThemeToggle />
+          </li>
+        </ul>
+
+        <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+          <div className={`hamburger ${menuOpen ? 'open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
       </div>
+
+      {/* Overlay for mobile menu */}
+      {menuOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0,0,0,0.5)',
+            zIndex: 999,
+          }}
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
     </nav>
   );
 };

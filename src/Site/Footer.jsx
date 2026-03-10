@@ -1,35 +1,37 @@
-import React, { useState, useEffect } from "react";
-import { FaGithub, FaYoutube, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
-import { SiItchdotio } from "react-icons/si";
-import "./footer.css";
+import React from 'react';
+import { FaGithub, FaYoutube, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { SiItchdotio } from 'react-icons/si';
 
-const Footer = () => {  
+const socials = [
+  { icon: <FaGithub />, href: 'https://github.com/omerfarukbaysal04' },
+  { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/baysal/' },
+  { icon: <FaYoutube />, href: 'https://www.youtube.com/@omerfarukkbaysal' },
+  { icon: <FaInstagram />, href: 'https://www.instagram.com/omerfarukkbaysal/' },
+  { icon: <FaTwitter />, href: 'https://x.com/BaysalSoft' },
+  { icon: <SiItchdotio />, href: 'https://baysalgames.itch.io' },
+];
+
+const Footer = () => {
   return (
-    <footer className="footer-bottom   text-center">
-      <br />
-      <br />
-      <div className="social-icons">
-        <a href="https://github.com/omerfarukbaysal04" target="_blank" rel="noopener noreferrer">
-          <FaGithub className="icon" />
-        </a>
-        <a href="https://www.youtube.com/@omerfarukkbaysal" target="_blank" rel="noopener noreferrer">
-          <FaYoutube className="icon" />
-        </a>
-        <a href="https://www.instagram.com/omerfarukkbaysal/" target="_blank" rel="noopener noreferrer">
-          <FaInstagram className="icon" />
-        </a>
-        <a href="https://x.com/BaysalSoft" target="_blank" rel="noopener noreferrer">
-          <FaTwitter className="icon" />
-        </a>
-        <a href="https://www.linkedin.com/in/baysal/" target="_blank" rel="noopener noreferrer">
-          <FaLinkedin className="icon" />
-        </a>
-        <a href="https://baysalgames.itch.io" target="_blank" rel="noopener noreferrer">
-          <SiItchdotio className="icon" />
-        </a>
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-socials">
+          {socials.map((social, index) => (
+            <a
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-social"
+            >
+              {social.icon}
+            </a>
+          ))}
+        </div>
+        <p className="footer-text">
+          &copy; {new Date().getFullYear()} Ömer Faruk Baysal. All rights reserved.
+        </p>
       </div>
-      <br />
-      <p>&copy; 2025 Ömer Faruk Baysal.All rights reserved.</p>
     </footer>
   );
 };

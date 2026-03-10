@@ -1,25 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './styles.css'
+import { useScrollReveal } from './components/AnimatedSVGs'
 import Navbar from './Site/Navbar'
 import Header from './Site/Header'
 import About from './Site/About'
+import Skills from './Site/Skills'
+import Projects from './Site/Projects'
 import Contact from './Site/Contact'
 import Footer from './Site/Footer'
-import Projects from './Site/Projects'
+import Preloader from './components/Preloader'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
-  const [count, setCount] = useState(0)
+  useScrollReveal();
 
   return (
     <>
-    <Navbar/>
-    <Header/>
-    <About/>
-    <Projects/>
-    <Contact/>
-    <Footer/>
+      <Preloader />
+      <Navbar />
+      <Header />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
+      <Footer />
+      <ScrollToTop />
     </>
   )
 }
