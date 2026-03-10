@@ -115,7 +115,9 @@
   border: none;
   cursor: pointer;
   padding: 8px;
-  z-index: 1001;
+  z-index: 1002;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hamburger {
@@ -918,6 +920,12 @@
   background: rgba(255, 255, 255, 0.8);
 }
 
+@media (max-width: 968px) {
+  [data-theme="light"] .nav-links {
+    background: rgba(245, 245, 250, 0.98);
+  }
+}
+
 /* ============================================
    PARTICLE BACKGROUND
    ============================================ */
@@ -1022,14 +1030,19 @@
     width: 80%;
     max-width: 320px;
     height: 100vh;
+    height: 100dvh;
     background: rgba(10, 10, 26, 0.98);
     backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     flex-direction: column;
     justify-content: center;
     gap: 16px;
     padding: 40px;
     transition: right var(--transition-normal);
     border-left: 1px solid var(--bg-glass-border);
+    z-index: 1001;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 
   .nav-links.open {

@@ -5,7 +5,7 @@ import { SiItchdotio } from 'react-icons/si';
 const socials = [
   { icon: <FaGithub />, href: 'https://github.com/omerfarukbaysal04' },
   { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/baysal/' },
-  { icon: <FaYoutube />, href: 'https://www.youtube.com/@omerfarukkbaysal' },
+  { icon: <FaYoutube />, href: 'https://www.youtube.com/@baysalsoft' },
   { icon: <FaInstagram />, href: 'https://www.instagram.com/omerfarukkbaysal/' },
   { icon: <FaTwitter />, href: 'https://x.com/BaysalSoft' },
   { icon: <SiItchdotio />, href: 'https://baysalgames.itch.io' },
