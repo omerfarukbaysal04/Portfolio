@@ -10,11 +10,31 @@ const categories = [
 
 const projects = [
   {
+    title: 'Stajio',
+    description: 'Stajio is a community-driven engineering internship platform. It works on the same principle as Product Hunt: anyone can post a listing, the community upvotes them, and the highest-quality listings are highlighted. Expired listings are automatically archived.',
+    video: 'https://www.youtube.com/embed/TrZ-o8HLp4Q?autoplay=1&mute=1',
+    tags: ['Next.js', 'Supabase', 'Tailwind', 'Full Stack'],
+    link: 'https://stajio-baysal.vercel.app/',
+    linkText: 'View on Website',
+    category: 'web',
+  },
+
+  {
     title: 'The Watchtower',
     description: 'Self-hosted cybersecurity monitoring tool. Scans targets for open ports, CVEs, SSL issues, DNS/email misconfigurations and subdomain exposure. Generates PDF reports and sends Telegram alerts.',
     video: 'https://www.youtube.com/embed/ex7Gkg-O8vI?autoplay=1&mute=1',
     tags: ['Python', 'FastAPI', 'Tool', 'Security'],
     link: 'https://github.com/omerfarukbaysal04/The-Watchtower',
+    linkText: 'View on GitHub',
+    category: 'cyber',
+  },
+
+  {
+    title: 'Baysal NAC System',
+    description: 'A modern, API-driven Network Access Control (NAC) system built on the AAA (Authentication, Authorization, Accounting) architecture. This project integrates FreeRADIUS with a custom FastAPI policy engine to provide dynamic VLAN assignments, secure credential management, and real-time session auditing.',
+    // video: 'https://www.youtube.com/embed/ex7Gkg-O8vI?autoplay=1&mute=1
+    tags: ['Python', 'FastAPI', 'FreeRADIUS', 'Tool', 'Security'],
+    link: 'https://github.com/omerfarukbaysal04/baysal-nac-system',
     linkText: 'View on GitHub',
     category: 'cyber',
   },
@@ -119,9 +139,9 @@ const Projects = () => {
                     allowFullScreen
                     style={{ display: 'block' }}
                   />
-                ) : (
+                ) : project.image ? (
                   <img src={project.image} alt={project.title} />
-                )}
+                ) : null}
               </div>
               <div className="project-info">
                 <h3 className="project-title">{project.title}</h3>
