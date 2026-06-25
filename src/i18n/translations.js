@@ -94,15 +94,15 @@ export const translations = {
     },
     hero: {
       greeting: 'Merhaba, ben',
-      roles: ['Siber Güvenlik Meraklısı', 'Oyun Geliştirici'],
+      roles: ['Siber Güvenlik alanı', 'Oyun Geliştirici'],
       description:
-        'Pamukkale Üniversitesi Bilgisayar Mühendisliği öğrencisiyim; siber güvenlik araçları ve sürükleyici oyun deneyimleri geliştirmeye tutkuyla bağlıyım.',
+        'Pamukkale Üniversitesi Bilgisayar Mühendisliği öğrencisiyim; siber güvenlik alanında kendimi geliştiriyorum ve oyun geliştirmekle ilgileniyorum.',
       viewProjects: 'Projeleri Gör',
       downloadCV: 'CV İndir',
     },
     stats: {
       gamesPublished: 'Yayınlanan Oyun',
-      securityTools: 'Güvenlik Aracı',
+      securityTools: 'Güvenlik Araçları',
       ceStudent: 'Bilgisayar Mühendisliği Öğrencisi',
       university: 'Pamukkale Üniversitesi',
     },
@@ -119,7 +119,7 @@ export const translations = {
     },
     skills: {
       pre: 'Teknoloji',
-      hi: 'Yığını',
+      hi: '',
       subtitle: 'Birlikte çalıştığım teknolojiler ve araçlar',
       categories: {
         languages: 'Diller',
