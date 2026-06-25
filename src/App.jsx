@@ -1,32 +1,40 @@
 import './styles.css'
-import { useScrollReveal } from './components/AnimatedSVGs'
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './Site/Navbar'
-import Header from './Site/Header'
-import About from './Site/About'
-import Skills from './Site/Skills'
-import Projects from './Site/Projects'
-import Contact from './Site/Contact'
 import Footer from './Site/Footer'
 import Preloader from './components/Preloader'
 import ScrollToTop from './components/ScrollToTop'
 import ParticleBackground from './components/ParticleBackground'
+import Home from './pages/Home'
+import ProjectDetail from './pages/ProjectDetail'
+
+// Scroll to top on route change, unless we're navigating to a specific section.
+function ScrollRestoration() {
+  const location = useLocation();
+  useEffect(() => {
+    if (!location.state?.scrollTo) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }, [location.pathname, location.state]);
+  return null;
+}
 
 function App() {
-  useScrollReveal();
-
   return (
-    <>
+    <BrowserRouter>
       <Preloader />
       <ParticleBackground />
+      <ScrollRestoration />
       <Navbar />
-      <Header />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Home />} />
+        <Route path="/projects/:slug" element={<ProjectDetail />} />
+      </Routes>
       <Footer />
       <ScrollToTop />
-    </>
+    </BrowserRouter>
   )
 }
 

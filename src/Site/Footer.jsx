@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaGithub, FaYoutube, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import { SiItchdotio } from 'react-icons/si';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const socials = [
   { icon: <FaGithub />, href: 'https://github.com/omerfarukbaysal04' },
@@ -12,6 +13,8 @@ const socials = [
 ];
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="footer">
       <div className="container">
@@ -29,7 +32,7 @@ const Footer = () => {
           ))}
         </div>
         <p className="footer-text">
-          &copy; {new Date().getFullYear()} Ömer Faruk Baysal. All rights reserved.
+          &copy; {new Date().getFullYear()} Ömer Faruk Baysal. {t.footer.rights}
         </p>
       </div>
     </footer>

@@ -1,18 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ThemeToggle from '../components/ThemeToggle';
+import LanguageToggle from '../components/LanguageToggle';
+import { useLanguage } from '../i18n/LanguageContext';
+
+const sections = ['about', 'skills', 'projects', 'contact'];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { t } = useLanguage();
+  const isHome = location.pathname === '/' || location.pathname === '/projects';
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
+      if (!isHome) return;
       // Detect active section
-      const sections = ['about', 'skills', 'projects', 'contact'];
-      for (const id of sections.reverse()) {
+      for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 200) {
           setActiveSection(id);
@@ -23,44 +32,54 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHome]);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const goToTop = () => {
     setMenuOpen(false);
+    if (isHome) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
   };
 
   const handleNavClick = (e, id) => {
     e.preventDefault();
     setMenuOpen(false);
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (isHome) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/', { state: { scrollTo: id } });
+    }
   };
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <button type="button" className="nav-logo" onClick={scrollToTop} aria-label="Back to top">
+        <button type="button" className="nav-logo" onClick={goToTop} aria-label="Back to top">
           <img src="/logo.png" alt="Logo" />
           <span className="nav-logo-text">ÖMER FARUK BAYSAL</span>
         </button>
 
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-          {['about', 'skills', 'projects', 'contact'].map((item) => (
+          {sections.map((item) => (
             <li key={item}>
               <a
                 href={`#${item}`}
-                className={activeSection === item ? 'active' : ''}
+                className={isHome && activeSection === item ? 'active' : ''}
                 onClick={(e) => handleNavClick(e, item)}
               >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
+                {t.nav[item]}
               </a>
             </li>
           ))}
           <li>
             <a className="nav-resume-btn" href="/cv.pdf" download="OmerFarukBaysal_CV.pdf">
-              Resume
+              {t.nav.resume}
             </a>
+          </li>
+          <li>
+            <LanguageToggle />
           </li>
           <li>
             <ThemeToggle />

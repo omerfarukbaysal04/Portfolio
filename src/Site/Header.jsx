@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { HeroDecoRings, DownloadIcon } from '../components/AnimatedSVGs';
-
-const roles = ['Cybersecurity Enthusiast', 'Game Developer'];
+import { useLanguage } from '../i18n/LanguageContext';
 
 const useCountUp = (target, duration = 2000) => {
   const [count, setCount] = useState(0);
@@ -46,7 +45,7 @@ const statCards = [
     ),
     value: 4,
     suffix: '+',
-    label: 'Games Published',
+    labelKey: 'gamesPublished',
     color: '#a855f7',
     delay: 0,
   },
@@ -58,7 +57,7 @@ const statCards = [
     ),
     value: 5,
     suffix: '+',
-    label: 'Security Tools',
+    labelKey: 'securityTools',
     color: '#00d4aa',
     delay: 0.15,
   },
@@ -71,8 +70,8 @@ const statCards = [
     ),
     value: null,
     suffix: '',
-    label: 'Computer Engineering Student',
-    sublabel: 'Pamukkale University',
+    labelKey: 'ceStudent',
+    sublabelKey: 'university',
     color: '#6c63ff',
     delay: 0.3,
   },
@@ -80,6 +79,7 @@ const statCards = [
 
 const StatCard = ({ card }) => {
   const { count, ref } = useCountUp(card.value || 0, 1800);
+  const { t } = useLanguage();
 
   return (
     <div
@@ -99,9 +99,9 @@ const StatCard = ({ card }) => {
         ) : (
           <span className="hero-stat-value" style={{ fontSize: '1.3rem' }}>🎓</span>
         )}
-        <span className="hero-stat-label">{card.label}</span>
-        {card.sublabel && (
-          <span className="hero-stat-sublabel">{card.sublabel}</span>
+        <span className="hero-stat-label">{t.stats[card.labelKey]}</span>
+        {card.sublabelKey && (
+          <span className="hero-stat-sublabel">{t.stats[card.sublabelKey]}</span>
         )}
       </div>
     </div>
@@ -109,6 +109,8 @@ const StatCard = ({ card }) => {
 };
 
 const Header = () => {
+  const { t } = useLanguage();
+  const roles = t.hero.roles;
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -137,7 +139,14 @@ const Header = () => {
     }
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, roleIndex]);
+  }, [displayText, isDeleting, roleIndex, roles]);
+
+  // Reset the typing animation when the language (and thus the roles) changes.
+  useEffect(() => {
+    setDisplayText('');
+    setIsDeleting(false);
+    setRoleIndex(0);
+  }, [roles]);
 
   return (
     <header className="hero" id="hero">
@@ -147,7 +156,7 @@ const Header = () => {
 
       <div className="container">
         <div className="hero-content">
-          <p className="hero-greeting">Hello, I'm</p>
+          <p className="hero-greeting">{t.hero.greeting}</p>
           <h1 className="hero-name">
             Ömer Faruk<br />
             <span className="gradient-text">Baysal</span>
@@ -160,7 +169,7 @@ const Header = () => {
           </div>
 
           <p className="hero-description">
-            Computer Engineering student at Pamukkale University, passionate about building cybersecurity tools and immersive game experiences.
+            {t.hero.description}
           </p>
 
           <div className="hero-cta">
@@ -168,7 +177,7 @@ const Header = () => {
               e.preventDefault();
               document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
             }}>
-              View Projects
+              {t.hero.viewProjects}
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
@@ -176,7 +185,7 @@ const Header = () => {
             </a>
             <a href="/cv.pdf" className="btn-secondary" download="OmerFarukBaysal_CV.pdf">
               <DownloadIcon />
-              Download CV
+              {t.hero.downloadCV}
             </a>
           </div>
         </div>
