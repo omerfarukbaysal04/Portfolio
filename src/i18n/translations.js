@@ -12,7 +12,7 @@ export const translations = {
     },
     hero: {
       greeting: "Hello, I'm",
-      roles: ['Cybersecurity Enthusiast', 'Game Developer'],
+      roles: ['Cybersecurity Enthusiast', 'Game Developer', 'Penetration Tester'],
       description:
         'Computer Engineering student at Pamukkale University, passionate about building cybersecurity tools and immersive game experiences.',
       viewProjects: 'View Projects',
@@ -94,7 +94,7 @@ export const translations = {
     },
     hero: {
       greeting: 'Merhaba, ben',
-      roles: ['Siber Güvenlik alanı', 'Oyun Geliştirici'],
+      roles: ['Siber Güvenlik', 'Oyun Geliştirici', 'Sızma Testi'],
       description:
         'Pamukkale Üniversitesi Bilgisayar Mühendisliği öğrencisiyim; siber güvenlik alanında kendimi geliştiriyorum ve oyun geliştirmekle ilgileniyorum.',
       viewProjects: 'Projeleri Gör',
