@@ -40,10 +40,10 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <a className="nav-logo" onClick={scrollToTop}>
+        <button type="button" className="nav-logo" onClick={scrollToTop} aria-label="Back to top">
           <img src="/logo.png" alt="Logo" />
           <span className="nav-logo-text">ÖMER FARUK BAYSAL</span>
-        </a>
+        </button>
 
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
           {['about', 'skills', 'projects', 'contact'].map((item) => (
@@ -58,7 +58,7 @@ const Navbar = () => {
             </li>
           ))}
           <li>
-            <a className="nav-resume-btn" href="/cv.pdf" download="ÖmerFarukBaysal_CV.pdf">
+            <a className="nav-resume-btn" href="/cv.pdf" download="OmerFarukBaysal_CV.pdf">
               Resume
             </a>
           </li>

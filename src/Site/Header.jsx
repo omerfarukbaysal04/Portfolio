@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ParticleBackground from '../components/ParticleBackground';
 import { HeroDecoRings, DownloadIcon } from '../components/AnimatedSVGs';
 
 const roles = ['Cybersecurity Enthusiast', 'Game Developer'];
@@ -143,7 +142,6 @@ const Header = () => {
   return (
     <header className="hero" id="hero">
       <div className="hero-bg">
-        <ParticleBackground />
         <HeroDecoRings />
       </div>
 
@@ -176,7 +174,7 @@ const Header = () => {
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
-            <a href="/cv.pdf" className="btn-secondary" download="ÖmerFarukBaysal_CV.pdf">
+            <a href="/cv.pdf" className="btn-secondary" download="OmerFarukBaysal_CV.pdf">
               <DownloadIcon />
               Download CV
             </a>

@@ -8,32 +8,31 @@ const ParticleBackground = () => {
     if (!svg) return;
 
     const particles = svg.querySelectorAll('.particle');
-    const lines = svg.querySelectorAll('.connection-line');
 
-    // Animate particles with random movements
+    // Animate particles with random movements (higher duration = slower)
     particles.forEach((particle, i) => {
-      const duration = 15 + Math.random() * 20;
-      const delay = Math.random() * -20;
-      
+      const duration = 30 + Math.random() * 40;
+      const delay = Math.random() * -40;
+
       particle.style.animation = `particleFloat${i % 3} ${duration}s ease-in-out ${delay}s infinite`;
     });
-
-    return () => {};
   }, []);
 
-  // Generate random particles
-  const particleCount = 50;
+  // Generate random particles — fewer on small screens / low-power devices to
+  // keep the animation light on mobile.
+  const isSmallScreen = typeof window !== 'undefined' && window.innerWidth < 768;
+  const particleCount = isSmallScreen ? 20 : 35;
   const particles = Array.from({ length: particleCount }, (_, i) => ({
     cx: Math.random() * 100,
     cy: Math.random() * 100,
     r: 0.5 + Math.random() * 2,
     opacity: 0.1 + Math.random() * 0.4,
     delay: Math.random() * 10,
-    duration: 10 + Math.random() * 20,
+    duration: 20 + Math.random() * 40,
   }));
 
   // Generate connection lines
-  const lineCount = 15;
+  const lineCount = isSmallScreen ? 8 : 12;
   const lines = Array.from({ length: lineCount }, (_, i) => ({
     x1: Math.random() * 100,
     y1: Math.random() * 100,
@@ -121,15 +120,15 @@ const ParticleBackground = () => {
           </circle>
         ))}
 
-        {/* Decorative large glow orbs */}
+        {/* Decorative large glow orbs (higher dur = slower pulse) */}
         <circle cx="15%" cy="30%" r="15" fill="#6c63ff" opacity="0.02">
-          <animate attributeName="r" values="15;20;15" dur="8s" repeatCount="indefinite" />
+          <animate attributeName="r" values="15;20;15" dur="24s" repeatCount="indefinite" />
         </circle>
         <circle cx="85%" cy="70%" r="12" fill="#00d4aa" opacity="0.02">
-          <animate attributeName="r" values="12;18;12" dur="10s" repeatCount="indefinite" />
+          <animate attributeName="r" values="12;18;12" dur="30s" repeatCount="indefinite" />
         </circle>
         <circle cx="50%" cy="20%" r="10" fill="#ff6b9d" opacity="0.015">
-          <animate attributeName="r" values="10;16;10" dur="12s" repeatCount="indefinite" />
+          <animate attributeName="r" values="10;16;10" dur="36s" repeatCount="indefinite" />
         </circle>
       </svg>
     </div>

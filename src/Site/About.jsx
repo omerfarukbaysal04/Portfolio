@@ -10,11 +10,10 @@ const About = () => {
             <h2 className="section-title">
               About <span className="gradient-text">Me</span>
             </h2>
-            <h3>
+            <p className="about-paragraph">
               I'm a Computer Engineering student at Pamukkale University with a strong focus on cybersecurity. I'm actively improving my skills through courses and hands-on projects, with interests in networking, incident analysis, and penetration testing.
-            </h3>
-            <br />
-            <h3>
+            </p>
+            <p className="about-paragraph">
               Beyond security, I also enjoy developing games with Unity. So far, I've created four personal games, and one of them is published on the{' '}
               <a href="https://play.google.com/store/apps/details?id=com.BaysalGames.Bally" target="_blank" rel="noopener noreferrer">
                 Google Play Store
@@ -22,11 +21,10 @@ const About = () => {
               <a href="https://baysalgames.itch.io" target="_blank" rel="noopener noreferrer">
                 itch.io
               </a>.
-            </h3>
-            <br />
-            <h3>
+            </p>
+            <p className="about-paragraph">
               My goal is to build a career in cybersecurity, combining continuous learning with practical experience, while also pursuing creative projects that fuel my passion for technology.
-            </h3>
+            </p>
           </div>
 
           <div className="about-image">

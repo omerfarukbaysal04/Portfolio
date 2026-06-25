@@ -5,12 +5,28 @@ const Preloader = () => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setFadeOut(true);
-      setTimeout(() => setVisible(false), 600);
-    }, 1500);
+    let hideTimer;
 
-    return () => clearTimeout(timer);
+    const dismiss = () => {
+      setFadeOut(true);
+      hideTimer = setTimeout(() => setVisible(false), 400);
+    };
+
+    // Keep a short minimum so the logo doesn't flash, but tie dismissal
+    // to the real page load instead of a fixed 1.5s delay.
+    const minDelay = setTimeout(() => {
+      if (document.readyState === 'complete') {
+        dismiss();
+      } else {
+        window.addEventListener('load', dismiss, { once: true });
+      }
+    }, 400);
+
+    return () => {
+      clearTimeout(minDelay);
+      clearTimeout(hideTimer);
+      window.removeEventListener('load', dismiss);
+    };
   }, []);
 
   if (!visible) return null;

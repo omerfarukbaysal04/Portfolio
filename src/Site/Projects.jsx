@@ -1,6 +1,48 @@
 import React, { useState } from 'react';
 import { ArrowIcon } from '../components/AnimatedSVGs';
 
+// Lightweight YouTube facade: shows the video thumbnail until the user clicks,
+// then loads the real iframe. Avoids loading several heavy YouTube embeds
+// (and auto-playing them all) on page load.
+const LazyVideo = ({ src, title }) => {
+  const [activated, setActivated] = useState(false);
+  const videoId = (src.match(/embed\/([^?/]+)/) || [])[1];
+  const thumbnail = videoId
+    ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+    : null;
+
+  if (activated) {
+    return (
+      <iframe
+        width="100%"
+        height="100%"
+        src={src}
+        title={title}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        style={{ display: 'block' }}
+      />
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      className="video-facade"
+      onClick={() => setActivated(true)}
+      aria-label={`Play video: ${title}`}
+      style={thumbnail ? { backgroundImage: `url(${thumbnail})` } : undefined}
+    >
+      <span className="video-facade-play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </span>
+    </button>
+  );
+};
+
 const categories = [
   { key: 'all', label: 'All' },
   { key: 'cyber', label: 'Cyber Security' },
@@ -129,16 +171,7 @@ const Projects = () => {
             <div key={project.title} className="glass-card project-card" style={{ animationDelay: `${index * 0.1}s` }}>
               <div className="project-media">
                 {project.video ? (
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src={project.video}
-                    title={project.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    style={{ display: 'block' }}
-                  />
+                  <LazyVideo src={project.video} title={project.title} />
                 ) : project.image ? (
                   <img src={project.image} alt={project.title} />
                 ) : null}

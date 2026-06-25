@@ -9,6 +9,7 @@ import Contact from './Site/Contact'
 import Footer from './Site/Footer'
 import Preloader from './components/Preloader'
 import ScrollToTop from './components/ScrollToTop'
+import ParticleBackground from './components/ParticleBackground'
 
 function App() {
   useScrollReveal();
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Preloader />
+      <ParticleBackground />
       <Navbar />
       <Header />
       <About />

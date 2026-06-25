@@ -34,6 +34,10 @@
   gap: 12px;
   cursor: pointer;
   text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
 }
 
 .nav-logo img {
@@ -379,7 +383,7 @@
   flex: 1;
 }
 
-.about-text h3 {
+.about-text .about-paragraph {
   font-size: 1.1rem;
   color: var(--text-secondary);
   font-weight: 400;
@@ -630,6 +634,49 @@
 
 .project-card:hover .project-media img {
   transform: scale(1.08);
+}
+
+/* YouTube facade (click-to-load video) */
+.video-facade {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-secondary);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.video-facade-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+  z-index: 2;
+}
+
+.video-facade-play svg {
+  width: 28px;
+  height: 28px;
+  margin-left: 3px;
+}
+
+.video-facade:hover .video-facade-play,
+.video-facade:focus-visible .video-facade-play {
+  transform: scale(1.12);
+  background: var(--accent-primary);
 }
 
 .project-info {
@@ -930,11 +977,11 @@
    PARTICLE BACKGROUND
    ============================================ */
 .particle-bg {
-  position: absolute;
+  position: fixed;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 0;
+  z-index: -1;
 }
 
 .particle-bg svg {
