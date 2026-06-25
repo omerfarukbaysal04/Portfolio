@@ -26,6 +26,90 @@ export const categoryKeys = ['all', 'cyber', 'game', 'web'];
 
 export const projects = [
   {
+    slug: 'pentez-ai',
+    title: 'PENTEZ-AI',
+    category: 'cyber',
+    tagline: {
+      en: 'An autonomous penetration-testing prototype for smart-city traffic infrastructure, combining LLMs, multi-agent systems and a blackboard architecture to simulate cyberattacks in a controlled environment.',
+      tr: "Akıllı şehir trafik altyapısına yönelik; LLM'leri, çoklu-ajan sistemlerini ve blackboard mimarisini birleştirerek kontrollü bir ortamda siber saldırıları simüle eden otonom sızma testi prototipi.",
+    },
+    overview: {
+      en: 'PENTEZ-AI is an autonomous penetration-testing prototype designed for smart-city traffic infrastructure. It combines Large Language Models, a multi-agent system and a blackboard architecture to simulate cyberattacks on traffic-management systems within a controlled environment. An LLM (Llama 3.1) acts as the decision layer that orchestrates modular micro-agents for reconnaissance, web analysis, exploit execution and reporting, while the SUMO traffic simulator visualises the real-world impact of each attack. Developed as an undergraduate capstone thesis at Pamukkale University — strictly for academic research, education and controlled simulation.',
+      tr: "PENTEZ-AI, akıllı şehir trafik altyapısı için tasarlanmış otonom bir sızma testi prototipidir. Büyük Dil Modellerini, çoklu-ajan sistemini ve blackboard mimarisini birleştirerek kontrollü bir ortamda trafik yönetim sistemlerine yönelik siber saldırıları simüle eder. Bir LLM (Llama 3.1) karar katmanı olarak görev yapar; keşif, web analizi, exploit yürütme ve raporlama için modüler mikro-ajanları yönetir. SUMO trafik simülatörü ise her saldırının gerçek dünyadaki etkisini görselleştirir. Pamukkale Üniversitesi'nde bir lisans bitirme tezi olarak; yalnızca akademik araştırma, eğitim ve kontrollü simülasyon amacıyla geliştirilmiştir.",
+    },
+    media: { type: 'image', src: '/pentezai5.png' },
+    tech: ['Python', 'Llama 3.1', 'Ollama', 'Flask', 'SUMO', 'Docker', 'Multi-Agent', 'Security'],
+    links: [
+      { label: { en: 'View on GitHub', tr: "GitHub'da Gör" }, url: 'https://github.com/omerfarukbaysal04/PENTEZ-AI', type: 'github' },
+    ],
+    features: {
+      en: [
+        'LLM-driven decision layer (Llama 3.1 via Ollama) for autonomous task orchestration',
+        'Modular micro-agents for reconnaissance, web analysis, exploit execution and reporting',
+        'Blackboard-based state management for agent coordination via shared JSON',
+        'SUMO traffic simulation to observe attack impact on real traffic flow',
+        'Three attack categories: central system, IoT/API endpoints, and V2X/autonomous networks',
+        'Vulnerable/Secure mode comparison to evaluate attacks against mitigations',
+        'Docker-containerised, isolated test environment with a Flask control panel',
+      ],
+      tr: [
+        'Otonom görev yönetimi için LLM tabanlı karar katmanı (Ollama üzerinde Llama 3.1)',
+        'Keşif, web analizi, exploit yürütme ve raporlama için modüler mikro-ajanlar',
+        'Paylaşılan JSON üzerinden ajan koordinasyonu sağlayan blackboard tabanlı durum yönetimi',
+        'Saldırıların gerçek trafik akışına etkisini gözlemlemek için SUMO trafik simülasyonu',
+        'Üç saldırı kategorisi: merkezi sistem, IoT/API uç noktaları ve V2X/otonom ağlar',
+        'Saldırıları alınan önlemlere karşı değerlendirmek için Vulnerable/Secure mod karşılaştırması',
+        'Flask kontrol panelli, Docker ile izole edilmiş test ortamı',
+      ],
+    },
+    role: { en: 'Researcher & Developer', tr: 'Araştırmacı & Geliştirici' },
+    status: { en: 'Academic Prototype', tr: 'Akademik Prototip' },
+    year: '2026',
+    gallery: ['/pentezai3.png', '/pentezai1.png', '/pentezai2.png', '/pentezai4.png'],
+  },
+  {
+    slug: 'tanilog',
+    title: 'TanıLog',
+    category: 'web',
+    tagline: {
+      en: 'An AI-powered health assistant where you upload medical documents and log daily health data, and AI turns them into meaningful, plain-language insights.',
+      tr: 'Tıbbi belgelerini yükleyip günlük sağlık verilerini kaydettiğin, yapay zekânın bunları anlamlı ve anlaşılır içgörülere dönüştürdüğü yapay zekâ destekli sağlık asistanı.',
+    },
+    overview: {
+      en: 'TanıLog is an AI-powered health management platform that combines personal health journaling with medical document analysis (“Understand your health, manage your life”). You can upload documents such as blood tests, MRI reports or prescriptions, or keep your journal with a voice assistant; advanced AI models analyze complex medical data within seconds and turn it into clear, plain-language reports and personalized health alerts.',
+      tr: 'TanıLog, kişisel sağlık günlüğü tutmayı tıbbi belge analiziyle birleştiren, yapay zekâ destekli bir sağlık yönetim platformudur (“Sağlığını anla, hayatını yönet”). Kan tahlili, MR raporu veya reçete gibi belgeleri yükleyebilir ya da sesli asistanla günlüğünü tutabilirsin; gelişmiş yapay zekâ modelleri karmaşık tıbbi verileri saniyeler içinde analiz edip anlaşılır Türkçe raporlara ve kişiselleştirilmiş sağlık uyarılarına dönüştürür.',
+    },
+    media: { type: 'image', src: '/tanilog.png' },
+    tech: ['React', 'TypeScript', 'Vite', 'Tailwind', 'FastAPI', 'PostgreSQL', 'Docker', 'Full Stack'],
+    links: [
+      { label: { en: 'View on Website', tr: 'Web Sitesinde Gör' }, url: 'https://tanilog.vercel.app', type: 'live' },
+      { label: { en: 'View on GitHub', tr: "GitHub'da Gör" }, url: 'https://github.com/omerfarukbaysal04/tanilog', type: 'github' },
+    ],
+    features: {
+      en: [
+        'Medical document analysis — upload blood tests, MRI reports or prescriptions and let AI explain them in plain language',
+        'Turkish voice assistant for fast, spoken health journaling',
+        'Doctor prep — generate a PDF summary of your last 30 days before an appointment',
+        'Drug interaction checking for the medications you take',
+        'Daily health tracking — symptoms, medication, sleep and nutrition',
+        'Emergency detection — instant alerts when critical lab values are found',
+        'Family tracking and a personalized health dashboard',
+      ],
+      tr: [
+        'Tıbbi belge analizi — kan tahlili, MR raporu veya reçete yükle; AI anlaşılır Türkçe ile anlatsın',
+        'Türkçe sesli asistan ile hızlı, konuşarak günlük kaydı',
+        'Doktora hazırlan — randevu öncesi son 30 günün özetini PDF olarak oluştur',
+        'İlaç etkileşim kontrolü — kullandığın ilaçların olası etkileşimleri',
+        'Günlük sağlık takibi — semptom, ilaç, uyku ve beslenme verileri',
+        'Acil durum tespiti — kritik tahlil değerleri bulunduğunda anlık uyarı',
+        'Aile takibi ve kişiselleştirilmiş sağlık panosu',
+      ],
+    },
+    role: { en: 'Full Stack Developer', tr: 'Full Stack Geliştirici' },
+    status: { en: 'Live', tr: 'Yayında' },
+    gallery: ['/tanilog2.png', '/tanilog3.png', '/tanilog4.png'],
+  },
+  {
     slug: 'stajio',
     title: 'Stajio',
     category: 'web',
