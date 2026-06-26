@@ -54,39 +54,41 @@ const ProjectDetail = () => {
           {t.detail.back}
         </Link>
 
-        <div className="project-detail-header reveal">
-          <h1 className="project-detail-title">{title}</h1>
-          <p className="project-detail-tagline">{tagline}</p>
+        <div className="project-detail-top reveal">
+          <div className="project-detail-header">
+            <h1 className="project-detail-title">{title}</h1>
+            <p className="project-detail-tagline">{tagline}</p>
 
-          <div className="project-tags">
-            {tech.map((tag, i) => (
-              <span key={i} className="project-tag">{tag}</span>
-            ))}
-          </div>
-
-          {links?.length > 0 && (
-            <div className="project-detail-links">
-              {links.map((link, i) => (
-                <a
-                  key={i}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={i === 0 ? 'btn-primary' : 'btn-secondary'}
-                >
-                  {tr(link.label)}
-                </a>
+            <div className="project-tags">
+              {tech.map((tag, i) => (
+                <span key={i} className="project-tag">{tag}</span>
               ))}
             </div>
-          )}
-        </div>
 
-        <div className="project-detail-media glass-card reveal">
-          {media?.type === 'video' ? (
-            <LazyVideo src={media.src} title={title} />
-          ) : media?.type === 'image' ? (
-            <img src={media.src} alt={title} />
-          ) : null}
+            {links?.length > 0 && (
+              <div className="project-detail-links">
+                {links.map((link, i) => (
+                  <a
+                    key={i}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={i === 0 ? 'btn-primary' : 'btn-secondary'}
+                  >
+                    {tr(link.label)}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="project-detail-media glass-card">
+            {media?.type === 'video' ? (
+              <LazyVideo src={media.src} title={title} />
+            ) : media?.type === 'image' ? (
+              <img src={media.src} alt={title} />
+            ) : null}
+          </div>
         </div>
 
         <div className="project-detail-body">
