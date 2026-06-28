@@ -8,6 +8,7 @@ export const translations = {
       skills: 'Skills',
       projects: 'Projects',
       contact: 'Contact',
+      social: 'Social',
       resume: 'Resume',
     },
     hero: {
@@ -57,6 +58,15 @@ export const translations = {
       },
       viewDetails: 'View Details',
     },
+    social: {
+      pre: 'Social',
+      hi: 'Media',
+      subtitle: 'Follow my work across platforms',
+      loadPreview: 'Load Preview',
+      viewProfile: 'View Profile',
+      openProfile: 'Open profile',
+      instagramText: 'Photos, reels and behind-the-scenes from my projects and games.',
+    },
     contact: {
       pre: "Let's",
       hi: 'Connect',
@@ -90,6 +100,7 @@ export const translations = {
       skills: 'Yetenekler',
       projects: 'Projeler',
       contact: 'İletişim',
+      social: 'Sosyal',
       resume: 'Özgeçmiş',
     },
     hero: {
@@ -138,6 +149,15 @@ export const translations = {
         web: 'Web',
       },
       viewDetails: 'Detayları Gör',
+    },
+    social: {
+      pre: 'Sosyal',
+      hi: 'Medya',
+      subtitle: 'Çalışmalarımı farklı platformlarda takip et',
+      loadPreview: 'Önizlemeyi Yükle',
+      viewProfile: 'Profili Gör',
+      openProfile: 'Profili aç',
+      instagramText: 'Projelerimden ve oyunlarımdan kareler, reels ve kamera arkası.',
     },
     contact: {
       pre: 'İletişime',

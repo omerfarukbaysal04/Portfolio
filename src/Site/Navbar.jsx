@@ -4,7 +4,7 @@ import ThemeToggle from '../components/ThemeToggle';
 import LanguageToggle from '../components/LanguageToggle';
 import { useLanguage } from '../i18n/LanguageContext';
 
-const sections = ['about', 'skills', 'projects', 'contact'];
+const sections = ['about', 'skills', 'projects', 'social', 'contact'];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

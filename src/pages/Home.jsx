@@ -4,6 +4,7 @@ import Header from '../Site/Header';
 import About from '../Site/About';
 import Skills from '../Site/Skills';
 import Projects from '../Site/Projects';
+import SocialMedia from '../Site/SocialMedia';
 import Contact from '../Site/Contact';
 import { useScrollReveal } from '../components/AnimatedSVGs';
 
@@ -31,6 +32,7 @@ const Home = () => {
       <About />
       <Skills />
       <Projects />
+      <SocialMedia />
       <Contact />
     </>
   );
