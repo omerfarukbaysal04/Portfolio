@@ -29,19 +29,12 @@ const socials = [
 const useAutoRotate = (length, interval) => {
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [resetKey, setResetKey] = useState(0); // bump to restart the timer after manual nav
   const reduced = useRef(
     typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
   );
 
-  useEffect(() => {
-    const onVis = () => setHidden(document.hidden);
-    document.addEventListener('visibilitychange', onVis);
-    return () => document.removeEventListener('visibilitychange', onVis);
-  }, []);
-
-  const active = !hovered && !hidden && !reduced.current;
+  const active = !hovered && !reduced.current;
 
   useEffect(() => {
     if (!active) return undefined;
