@@ -19,12 +19,6 @@ export const translations = {
       viewProjects: 'View Projects',
       downloadCV: 'Download CV',
     },
-    stats: {
-      gamesPublished: 'Games Published',
-      securityTools: 'Security Tools',
-      ceStudent: 'Computer Engineering Student',
-      university: 'Pamukkale University',
-    },
     about: {
       pre: 'About',
       hi: 'Me',
@@ -62,10 +56,8 @@ export const translations = {
       pre: 'Social',
       hi: 'Media',
       subtitle: 'Follow my work across platforms',
-      loadPreview: 'Load Preview',
-      viewProfile: 'View Profile',
       openProfile: 'Open profile',
-      instagramText: 'Photos, reels and behind-the-scenes from my projects and games.',
+      counts: { subscribers: 'Subscribers', followers: 'Followers', connections: 'Connections' },
     },
     contact: {
       pre: "Let's",
@@ -111,12 +103,6 @@ export const translations = {
       viewProjects: 'Projeleri Gör',
       downloadCV: 'CV İndir',
     },
-    stats: {
-      gamesPublished: 'Yayınlanan Oyun',
-      securityTools: 'Güvenlik Araçları',
-      ceStudent: 'Bilgisayar Mühendisliği Öğrencisi',
-      university: 'Pamukkale Üniversitesi',
-    },
     about: {
       pre: 'Hakkımda',
       hi: '',
@@ -154,10 +140,8 @@ export const translations = {
       pre: 'Sosyal',
       hi: 'Medya',
       subtitle: 'Çalışmalarımı farklı platformlarda takip et',
-      loadPreview: 'Önizlemeyi Yükle',
-      viewProfile: 'Profili Gör',
       openProfile: 'Profili aç',
-      instagramText: 'Projelerimden ve oyunlarımdan kareler, reels ve kamera arkası.',
+      counts: { subscribers: 'Abone', followers: 'Takipçi', connections: 'Bağlantı' },
     },
     contact: {
       pre: 'İletişime',

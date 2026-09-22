@@ -1,33 +1,23 @@
 import { useState, useRef, useEffect } from 'react';
-import { FaXTwitter, FaYoutube, FaInstagram, FaTiktok } from 'react-icons/fa6';
+import { FaXTwitter, FaYoutube, FaInstagram, FaLinkedin } from 'react-icons/fa6';
 import { useLanguage } from '../i18n/LanguageContext';
+// Auto-refreshed at build time by scripts/fetch-youtube.mjs (newest videos first).
+import ytVideos from '../data/youtube.json';
 
-// Recent YouTube videos (newest first). Refresh from:
-// https://www.youtube.com/feeds/videos.xml?channel_id=UCgHK1rZFe-g4HZGNm4PqsTg
-const ytVideos = [
-  { id: 'sVnTnisPzuA', title: '10 Dolara Dünyayı Kurtaran Adam | WannaCry' },
-  { id: 'Kc81XQr9DAc', title: 'AI PENTEST TOOL - VEHICLE LOCKDOWN ATTACK' },
-  { id: 'TrZ-o8HLp4Q', title: 'Stajio: Tüm stajlar tek bir yerde!' },
-  { id: 'ex7Gkg-O8vI', title: 'The Watchtower' },
-  { id: 'hBPBLx1Q0lg', title: 'Unity ile Sıfırdan Öğrenip Yaptığım Oyunlar' },
-  { id: 'tW3ahjArIHI', title: 'Glide Ball' },
+// Follower/subscriber counts (update as they grow).
+const stats = [
+  { key: 'youtube', icon: <FaYoutube />, color: '#FF0000', value: 17, suffix: '', labelKey: 'subscribers', url: 'https://www.youtube.com/@omerfarukbaysall' },
+  { key: 'linkedin', icon: <FaLinkedin />, color: '#0a66c2', value: 1297, suffix: '', labelKey: 'followers', url: 'https://www.linkedin.com/in/baysal/' },
+  { key: 'instagram', icon: <FaInstagram />, color: '#e1306c', value: 41, suffix: '', labelKey: 'followers', url: 'https://www.instagram.com/baysalsoft/' },
+  { key: 'x', icon: <FaXTwitter />, color: '#1d9bf0', value: 7, suffix: '', labelKey: 'followers', url: 'https://x.com/BaysalSoft' },
 ];
 
 const accounts = {
-  youtube: { icon: <FaYoutube />, name: 'YouTube', handle: '@baysalsoft', url: 'https://www.youtube.com/@baysalsoft', color: '#FF0000' },
-  x: { icon: <FaXTwitter />, name: 'X', handle: '@BaysalSoft', url: 'https://x.com/BaysalSoft', color: '#1d9bf0', image: '/x.png' },
-  tiktok: { icon: <FaTiktok />, name: 'TikTok', handle: '@baysalsoft', url: 'https://www.tiktok.com/@baysalsoft', color: '#ff0050' },
+  youtube: { icon: <FaYoutube />, name: 'YouTube', handle: '@omerfarukbaysall', url: 'https://www.youtube.com/@omerfarukbaysall', color: '#FF0000' },
+  linkedin: { icon: <FaLinkedin />, name: 'LinkedIn', handle: 'in/baysal', url: 'https://www.linkedin.com/in/baysal/', color: '#0a66c2', image: '/linkedin.png' },
   instagram: { icon: <FaInstagram />, name: 'Instagram', handle: '@baysalsoft', url: 'https://www.instagram.com/baysalsoft/', color: '#e1306c', image: '/instagram.png' },
+  x: { icon: <FaXTwitter />, name: 'X', handle: '@BaysalSoft', url: 'https://x.com/BaysalSoft', color: '#1d9bf0', image: '/x.png' },
 };
-
-const loadScript = (src) =>
-  new Promise((resolve) => {
-    const s = document.createElement('script');
-    s.src = src;
-    s.async = true;
-    s.onload = resolve;
-    document.body.appendChild(s);
-  });
 
 // Reusable "load when scrolled into view" hook.
 const useInView = (rootMargin = '300px') => {
@@ -97,31 +87,6 @@ const YouTubeEmbed = () => {
   );
 };
 
-// TikTok: official creator embed, loaded when scrolled into view.
-const TikTokEmbed = ({ account }) => {
-  const [ref, inView] = useInView();
-  const boxRef = useRef(null);
-
-  useEffect(() => {
-    if (!inView || !boxRef.current) return;
-    const el = boxRef.current;
-    el.innerHTML = `<blockquote class="tiktok-embed" cite="${account.url}" data-unique-id="${account.handle.replace('@', '')}" data-embed-type="creator" style="max-width:780px;min-width:288px;"><section></section></blockquote>`;
-    loadScript('https://www.tiktok.com/embed.js');
-  }, [inView, account]);
-
-  return (
-    <div className="social-embed-wrap" ref={ref}>
-      {inView ? (
-        <div className="social-embed-scroll" ref={boxRef} />
-      ) : (
-        <div className="social-embed-loading" style={{ color: account.color }}>
-          {account.icon}
-        </div>
-      )}
-    </div>
-  );
-};
-
 // X / Instagram: profile screenshot card (live embeds are unreliable/blocked).
 const ImageEmbed = ({ account }) => (
   <a
@@ -134,6 +99,48 @@ const ImageEmbed = ({ account }) => (
     <img src={account.image} alt={`${account.name} — ${account.handle}`} loading="lazy" />
   </a>
 );
+
+const formatCount = (n) =>
+  n >= 10000 ? (n / 1000).toFixed(n % 1000 === 0 ? 0 : 1) + 'K' : n.toLocaleString('en-US');
+
+// Animated count-up follower/subscriber tile.
+const StatItem = ({ item, inView }) => {
+  const { t } = useLanguage();
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    if (!inView) return undefined;
+    let raf;
+    const start = performance.now();
+    const dur = 1600;
+    const tick = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      setN(Math.round(eased * item.value));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, item.value]);
+
+  return (
+    <a href={item.url} target="_blank" rel="noopener noreferrer" className="social-stat" style={{ '--social-color': item.color }}>
+      <span className="social-stat-icon">{item.icon}</span>
+      <span className="social-stat-value">{formatCount(n)}{item.suffix}</span>
+      <span className="social-stat-label">{t.social.counts[item.labelKey]}</span>
+    </a>
+  );
+};
+
+const SocialStats = () => {
+  const [ref, inView] = useInView('0px');
+  return (
+    <div className="social-stats reveal" ref={ref}>
+      {stats.map((s) => (
+        <StatItem key={s.key} item={s} inView={inView} />
+      ))}
+    </div>
+  );
+};
 
 const SocialCard = ({ account, children }) => {
   const { t } = useLanguage();
@@ -180,13 +187,15 @@ const SocialMedia = () => {
           </p>
         </div>
 
+        <SocialStats />
+
         <div className="social-grid reveal">
           <SocialCard account={accounts.youtube}>
             <YouTubeEmbed />
           </SocialCard>
 
-          <SocialCard account={accounts.tiktok}>
-            <TikTokEmbed account={accounts.tiktok} />
+          <SocialCard account={accounts.linkedin}>
+            <ImageEmbed account={accounts.linkedin} />
           </SocialCard>
 
           <SocialCard account={accounts.instagram}>

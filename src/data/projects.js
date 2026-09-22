@@ -37,7 +37,7 @@ export const projects = [
       en: 'PENTEZ-AI is an autonomous penetration-testing prototype designed for smart-city traffic infrastructure. It combines Large Language Models, a multi-agent system and a blackboard architecture to simulate cyberattacks on traffic-management systems within a controlled environment. An LLM (Llama 3.1) acts as the decision layer that orchestrates modular micro-agents for reconnaissance, web analysis, exploit execution and reporting, while the SUMO traffic simulator visualises the real-world impact of each attack. Developed as an undergraduate capstone thesis at Pamukkale University — strictly for academic research, education and controlled simulation.',
       tr: "PENTEZ-AI, akıllı şehir trafik altyapısı için tasarlanmış otonom bir sızma testi prototipidir. Büyük Dil Modellerini, çoklu-ajan sistemini ve blackboard mimarisini birleştirerek kontrollü bir ortamda trafik yönetim sistemlerine yönelik siber saldırıları simüle eder. Bir LLM (Llama 3.1) karar katmanı olarak görev yapar; keşif, web analizi, exploit yürütme ve raporlama için modüler mikro-ajanları yönetir. SUMO trafik simülatörü ise her saldırının gerçek dünyadaki etkisini görselleştirir. Pamukkale Üniversitesi'nde bir lisans bitirme tezi olarak; yalnızca akademik araştırma, eğitim ve kontrollü simülasyon amacıyla geliştirilmiştir.",
     },
-    media: { type: 'image', src: '/pentezai5.png' },
+    media: { type: 'image', src: '/pentez-ai.png' },
     tech: ['Python', 'Llama 3.1', 'Ollama', 'Flask', 'SUMO', 'Docker', 'Multi-Agent', 'Security'],
     links: [
       { label: { en: 'View on GitHub', tr: "GitHub'da Gör" }, url: 'https://github.com/omerfarukbaysal04/PENTEZ-AI', type: 'github' },
@@ -65,7 +65,7 @@ export const projects = [
     role: { en: 'Researcher & Developer', tr: 'Araştırmacı & Geliştirici' },
     status: { en: 'Academic Prototype', tr: 'Akademik Prototip' },
     year: '2026',
-    gallery: ['/pentezai3.png', '/pentezai1.png', '/pentezai2.png', '/pentezai4.png'],
+    gallery: ['/pentezai5.png', '/pentezai3.png', '/pentezai1.png', '/pentezai2.png', '/pentezai4.png'],
   },
   {
     slug: 'tanilog',
@@ -160,7 +160,7 @@ export const projects = [
       en: 'The Watchtower is a self-hosted security monitoring platform that continuously scans your infrastructure for vulnerabilities and misconfigurations. It performs port and service detection, matches findings against known CVEs, inspects SSL/TLS and security headers, validates DNS/email records, and discovers exposed subdomains. Results are stored as scan history, turned into PDF reports, and pushed to Telegram when something critical is found — giving you continuous monitoring without expensive commercial tooling.',
       tr: "The Watchtower, altyapını zafiyetler ve yapılandırma hataları için sürekli tarayan, kendi sunucunda barındırılan bir güvenlik izleme platformudur. Port ve servis tespiti yapar, bulguları bilinen CVE'lerle eşleştirir, SSL/TLS ve güvenlik başlıklarını inceler, DNS/e-posta kayıtlarını doğrular ve dışa açık alt alan adlarını keşfeder. Sonuçlar tarama geçmişi olarak saklanır, PDF raporlara dönüştürülür ve kritik bir bulgu çıktığında Telegram'a bildirim gönderilir — pahalı ticari araçlara ihtiyaç duymadan sürekli izleme sağlar.",
     },
-    media: { type: 'video', src: 'https://www.youtube.com/embed/ex7Gkg-O8vI' },
+    media: { type: 'image', src: '/the-watchtower.webp' },
     tech: ['Python', 'FastAPI', 'Nmap', 'SQLite', 'Docker', 'Security'],
     links: [
       { label: { en: 'View on GitHub', tr: "GitHub'da Gör" }, url: 'https://github.com/omerfarukbaysal04/The-Watchtower', type: 'github' },
@@ -209,7 +209,7 @@ export const projects = [
       en: 'Baysal NAC System is a modern, API-driven Network Access Control system built on the AAA (Authentication, Authorization, Accounting) architecture. It integrates FreeRADIUS with a custom FastAPI policy engine so that network access decisions are made dynamically: users are authenticated, assigned the right VLAN based on their group, and their sessions are tracked in real time. PostgreSQL stores credentials and session data while Redis keeps active sessions fast to query.',
       tr: "Baysal NAC System, AAA (Kimlik Doğrulama, Yetkilendirme, Hesap Tutma) mimarisi üzerine kurulu, modern ve API odaklı bir Ağ Erişim Kontrolü sistemidir. FreeRADIUS'u özel bir FastAPI politika motoruyla bütünleştirir; böylece ağ erişim kararları dinamik olarak verilir: kullanıcılar doğrulanır, grubuna göre doğru VLAN'a atanır ve oturumları gerçek zamanlı izlenir. PostgreSQL kimlik bilgilerini ve oturum verilerini saklarken, Redis aktif oturumları hızlı sorgulanır tutar.",
     },
-    media: { type: 'image', src: '/ns.png' },
+    media: { type: 'image', src: '/baysal-nac.webp' },
     tech: ['Python', 'FastAPI', 'FreeRADIUS', 'PostgreSQL', 'Redis', 'Docker'],
     links: [
       { label: { en: 'View on GitHub', tr: "GitHub'da Gör" }, url: 'https://github.com/omerfarukbaysal04/baysal-nac-system', type: 'github' },

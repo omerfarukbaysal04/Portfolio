@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaXTwitter, FaYoutube, FaInstagram, FaTiktok } from 'react-icons/fa6';
+import { FaXTwitter, FaYoutube, FaInstagram, FaLinkedin } from 'react-icons/fa6';
 import { projects } from '../data/projects';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -19,8 +19,8 @@ const projectThumb = (p) => {
 };
 
 const socials = [
-  { icon: <FaYoutube />, name: 'YouTube', handle: '@baysalsoft', url: 'https://www.youtube.com/@baysalsoft', color: '#FF0000' },
-  { icon: <FaTiktok />, name: 'TikTok', handle: '@baysalsoft', url: 'https://www.tiktok.com/@baysalsoft', color: '#ff0050' },
+  { icon: <FaYoutube />, name: 'YouTube', handle: '@omerfarukbaysall', url: 'https://www.youtube.com/@omerfarukbaysall', color: '#FF0000' },
+  { icon: <FaLinkedin />, name: 'LinkedIn', handle: 'in/baysal', url: 'https://www.linkedin.com/in/baysal/', color: '#0a66c2' },
   { icon: <FaInstagram />, name: 'Instagram', handle: '@baysalsoft', url: 'https://www.instagram.com/baysalsoft/', color: '#e1306c' },
   { icon: <FaXTwitter />, name: 'X', handle: '@BaysalSoft', url: 'https://x.com/BaysalSoft', color: '#1d9bf0' },
 ];

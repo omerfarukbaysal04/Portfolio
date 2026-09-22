@@ -1273,6 +1273,61 @@
   margin-bottom: 48px;
 }
 
+.social-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.social-stat {
+  --social-color: var(--accent-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 22px 12px;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-glass-border);
+  text-decoration: none;
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.social-stat:hover {
+  border-color: var(--social-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 26px color-mix(in srgb, var(--social-color) 22%, transparent);
+}
+
+.social-stat-icon {
+  font-size: 1.5rem;
+  color: var(--social-color);
+}
+
+.social-stat-value {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, var(--social-color), var(--text-primary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.social-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 640px) {
+  .social-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .social-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1355,13 +1410,7 @@
   display: flex;
 }
 
-/* Auto-loading embed (loads when scrolled into view) */
-.social-embed-wrap {
-  flex: 1;
-  width: 100%;
-  display: flex;
-}
-
+/* Loading placeholder while an embed initialises */
 .social-embed-loading {
   flex: 1;
   display: flex;
@@ -1375,14 +1424,6 @@
 @keyframes socialPulse {
   0%, 100% { opacity: 0.25; }
   50% { opacity: 0.5; }
-}
-
-/* TikTok scroll embed */
-.social-embed-scroll {
-  width: 100%;
-  height: 480px;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 /* YouTube: player + recent-videos strip */
