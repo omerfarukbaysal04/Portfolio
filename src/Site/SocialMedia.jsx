@@ -3,13 +3,14 @@ import { FaXTwitter, FaYoutube, FaInstagram, FaLinkedin } from 'react-icons/fa6'
 import { useLanguage } from '../i18n/LanguageContext';
 // Auto-refreshed at build time by scripts/fetch-youtube.mjs (newest videos first).
 import ytVideos from '../data/youtube.json';
+// YouTube auto-updates at build (scripts/fetch-counts.mjs); the rest are manual.
+import socialCounts from '../data/social-counts.json';
 
-// Follower/subscriber counts (update as they grow).
 const stats = [
-  { key: 'youtube', icon: <FaYoutube />, color: '#FF0000', value: 17, suffix: '', labelKey: 'subscribers', url: 'https://www.youtube.com/@omerfarukbaysall' },
-  { key: 'linkedin', icon: <FaLinkedin />, color: '#0a66c2', value: 1297, suffix: '', labelKey: 'followers', url: 'https://www.linkedin.com/in/baysal/' },
-  { key: 'instagram', icon: <FaInstagram />, color: '#e1306c', value: 41, suffix: '', labelKey: 'followers', url: 'https://www.instagram.com/baysalsoft/' },
-  { key: 'x', icon: <FaXTwitter />, color: '#1d9bf0', value: 7, suffix: '', labelKey: 'followers', url: 'https://x.com/BaysalSoft' },
+  { key: 'youtube', icon: <FaYoutube />, color: '#FF0000', value: socialCounts.youtube, labelKey: 'subscribers', url: 'https://www.youtube.com/@omerfarukbaysall' },
+  { key: 'linkedin', icon: <FaLinkedin />, color: '#0a66c2', value: socialCounts.linkedin, labelKey: 'followers', url: 'https://www.linkedin.com/in/baysal/' },
+  { key: 'instagram', icon: <FaInstagram />, color: '#e1306c', value: socialCounts.instagram, labelKey: 'followers', url: 'https://www.instagram.com/baysalsoft/' },
+  { key: 'x', icon: <FaXTwitter />, color: '#1d9bf0', value: socialCounts.x, labelKey: 'followers', url: 'https://x.com/BaysalSoft' },
 ];
 
 const accounts = {

@@ -291,7 +291,7 @@ export const projects = [
       en: "Foxi, a fox cursed from birth, sets out to find his brother. A Fox Story is a story-driven 2D platformer with rogue-like elements, with a narrative I wrote myself and built entirely from free assets. It's the very first game I ever made — a complete solo project from concept to release.",
       tr: 'Doğuştan lanetli bir tilki olan Foxi, kardeşini bulmak için yola çıkar. A Fox Story, hikâyesini kendim yazdığım ve tamamen ücretsiz varlıklardan oluşturduğum, rogue-like ögeleri olan hikâye odaklı bir 2D platform oyunudur. Yaptığım ilk oyundur — fikirden yayına kadar tamamen bağımsız bir proje.',
     },
-    media: { type: 'video', src: 'https://www.youtube.com/embed/STD92cmPuUk' },
+    media: { type: 'image', src: '/a-fox-story.png' },
     tech: ['Unity', 'C#', '2D Platformer', 'Rogue-like'],
     links: [
       { label: { en: 'Play on itch.io', tr: "itch.io'da Oyna" }, url: 'https://baysalgames.itch.io/a-fox-story', type: 'store' },
@@ -431,7 +431,7 @@ export const projects = [
       en: 'Kitap Vitrini (“Book Showcase”) is a full-stack web application for browsing and displaying a catalog of books. It pairs a React + TypeScript frontend with an ASP.NET Core backend and an MS SQL database. It was built as a university web development course project — and was my first proper full-stack website.',
       tr: 'Kitap Vitrini, bir kitap kataloğunu görüntülemek ve sergilemek için geliştirilmiş full-stack bir web uygulamasıdır. React + TypeScript arayüzünü ASP.NET Core arka ucu ve MS SQL veritabanıyla birleştirir. Bir üniversite web geliştirme ders projesi olarak hazırlandı — ve ilk düzgün full-stack web sitemdi.',
     },
-    media: { type: 'video', src: 'https://www.youtube.com/embed/7pRuS0D2ePo' },
+    media: { type: 'image', src: '/kitap-vitrini.png' },
     tech: ['React', 'TypeScript', 'ASP.NET Core', 'MS SQL', 'Full Stack'],
     links: [
       { label: { en: 'View on GitHub', tr: "GitHub'da Gör" }, url: 'https://github.com/omerfarukbaysal04/Kitap-Vitrini', type: 'github' },
