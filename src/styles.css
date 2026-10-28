@@ -94,25 +94,6 @@
   border-radius: 1px;
 }
 
-.nav-resume-btn {
-  background: var(--accent-gradient-2) !important;
-  color: #fff !important;
-  padding: 8px 20px !important;
-  border-radius: 10px !important;
-  font-weight: 600 !important;
-  font-size: 0.85rem !important;
-  border: none;
-  cursor: pointer;
-  transition: all var(--transition-fast) !important;
-  text-decoration: none !important;
-  display: inline-block;
-}
-
-.nav-resume-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.4);
-}
-
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -201,11 +182,12 @@
 }
 
 .hero-name {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 3.6vw, 3.5rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 20px;
   letter-spacing: -0.03em;
+  white-space: nowrap;
 }
 
 .hero-description {
@@ -806,38 +788,98 @@
   color: var(--text-secondary);
 }
 
-/* Store cards (itch.io / Google Play) in the Game Development tab */
-.store-cover {
-  position: relative;
-  aspect-ratio: 16 / 10;
+/* Game tab: four games in one row, compact store links below */
+.projects-grid.projects-grid--game {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.store-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.store-mini {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  color: inherit;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: fadeInUp 0.5s ease both;
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.store-mini:hover {
+  color: inherit;
+  transform: translateY(-3px);
+  border-color: var(--border-glow);
+  box-shadow: 0 12px 34px rgba(108, 99, 255, 0.14);
+}
+
+.store-mini-icon {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-}
-
-.store-card--itch .store-cover {
-  background: radial-gradient(circle at 30% 20%, #ff6b72 0%, #fa5c5c 35%, #b8323a 100%);
-}
-
-.store-card--play .store-cover {
-  background: radial-gradient(circle at 30% 20%, #34d399 0%, #0f9d58 40%, #0b3d2e 100%);
-}
-
-.store-icon {
-  font-size: 4.5rem;
-  line-height: 1;
+  border-radius: 12px;
+  font-size: 1.5rem;
   color: #fff;
-  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.35));
-  transition: transform var(--transition-slow);
 }
 
-.store-icon svg {
-  display: block;
+.store-mini--itch .store-mini-icon {
+  background: linear-gradient(135deg, #ff6b72, #c4363f);
 }
 
-.store-card:hover .store-icon {
-  transform: scale(1.08) rotate(-3deg);
+.store-mini--play .store-mini-icon {
+  background: linear-gradient(135deg, #34d399, #0b7a45);
+}
+
+.store-mini-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.store-mini-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.store-mini-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.store-mini-arrow {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.store-mini:hover .store-mini-arrow {
+  color: var(--accent-secondary);
+  transform: translate(2px, -2px);
+}
+
+[data-theme="light"] .store-mini {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(0, 0, 0, 0.08);
 }
 
 .projects-grid {
@@ -1254,42 +1296,56 @@
    ============================================ */
 .contact-section {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-}
-
-.contact-section > .container {
-  width: 100%;
 }
 
 .contact-wrapper {
-  text-align: center;
-  max-width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 60px 40px;
+  padding: 36px 40px;
+}
+
+.contact-text {
+  flex: 1;
+  min-width: 0;
 }
 
 .contact-title {
-  font-size: 2.5rem;
+  font-size: 1.9rem;
   font-weight: 800;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   letter-spacing: -0.03em;
 }
 
 .contact-desc {
   color: var(--text-secondary);
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 40px;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 20px;
+}
+
+.contact-actions {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-actions .contact-btn,
+.contact-actions .contact-cv {
+  width: 100%;
+  justify-content: center;
 }
 
 .contact-btn {
   background: var(--accent-gradient-2);
   color: #fff;
-  padding: 16px 40px;
-  border-radius: 14px;
+  padding: 14px 28px;
+  border-radius: 12px;
   font-weight: 700;
   font-size: 1rem;
   border: none;
@@ -1322,15 +1378,13 @@
 
 .contact-socials {
   display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 40px;
+  gap: 10px;
 }
 
 .contact-social-link {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1461,10 +1515,6 @@
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
 }
 
-[data-theme="light"] .nav-resume-btn {
-  color: #fff;
-}
-
 [data-theme="light"] .project-card {
   background: rgba(255, 255, 255, 0.75);
   border-color: rgba(0, 0, 0, 0.08);
@@ -1537,7 +1587,7 @@
   }
 
   .hero-name {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 6.5vw, 2.75rem);
   }
 
   .hero-description {
@@ -1572,8 +1622,8 @@
     grid-template-columns: 1fr;
   }
 
-  .store-card {
-    order: 1;
+  .projects-grid.projects-grid--game {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .project-categories {
@@ -1636,17 +1686,35 @@
 
 
   .contact-wrapper {
-    padding: 40px 24px;
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+    padding: 32px 24px;
+  }
+
+  .contact-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-socials {
+    justify-content: center;
+  }
+
+  .contact-actions {
+    flex: none;
+    width: 100%;
+    max-width: 320px;
   }
 
   .contact-title {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero-name {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 
 
@@ -1662,6 +1730,11 @@
 
 /* Must come after the 968px block so it wins on phones */
 @media (max-width: 640px) {
+  .projects-grid.projects-grid--game,
+  .store-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
   }

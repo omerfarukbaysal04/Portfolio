@@ -16,8 +16,7 @@ const Header = () => {
         <div className="hero-content">
           <p className="hero-greeting">{t.hero.greeting}</p>
           <h1 className="hero-name">
-            Ömer Faruk<br />
-            <span className="gradient-text">Baysal</span>
+            Ömer Faruk <span className="gradient-text">Baysal</span>
           </h1>
 
           <p className="hero-description">

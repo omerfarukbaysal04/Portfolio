@@ -51,6 +51,7 @@ const ProjectCard = ({ project, index }) => {
   );
 };
 
+// Compact horizontal store link (itch.io / Google Play) under the game cards.
 const StoreCard = ({ store, index }) => {
   const { t } = useLanguage();
   const s = t.projects.stores[store.key];
@@ -60,23 +61,17 @@ const StoreCard = ({ store, index }) => {
       href={store.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`project-card store-card store-card--${store.key}`}
+      className={`store-mini store-mini--${store.key}`}
       style={{ animationDelay: `${index * 0.05}s` }}
     >
-      <div className="store-cover">
-        <span className="store-icon" aria-hidden="true">{store.icon}</span>
-        <span className="project-badge">{t.projects.storeBadge}</span>
-      </div>
-      <div className="project-body">
-        <h3 className="project-title">{s.title}</h3>
-        <p className="project-description">{s.desc}</p>
-        <span className="project-cta">
-          {s.cta}
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M7 17 17 7M7 7h10v10" />
-          </svg>
-        </span>
-      </div>
+      <span className="store-mini-icon" aria-hidden="true">{store.icon}</span>
+      <span className="store-mini-text">
+        <span className="store-mini-title">{s.title}</span>
+        <span className="store-mini-desc">{s.desc}</span>
+      </span>
+      <svg className="store-mini-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M7 17 17 7M7 7h10v10" />
+      </svg>
     </a>
   );
 };
@@ -86,18 +81,7 @@ const Projects = () => {
   const { t } = useLanguage();
 
   const list = projects.filter((p) => p.category === activeCategory);
-  const cards = list.map((project, index) => (
-    <ProjectCard key={project.slug} project={project} index={index} />
-  ));
-
-  // Games: 2x2 grid of games, store cards in the right-hand column (itch.io, then Google Play).
-  if (activeCategory === 'game') {
-    const [itch, play] = stores.map((store, i) => (
-      <StoreCard key={store.key} store={store} index={list.length + i} />
-    ));
-    cards.splice(2, 0, itch);
-    cards.splice(5, 0, play);
-  }
+  const isGame = activeCategory === 'game';
 
   return (
     <section id="projects" className="section projects-section">
@@ -123,9 +107,19 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="projects-grid" key={activeCategory}>
-          {cards}
+        <div className={`projects-grid${isGame ? ' projects-grid--game' : ''}`} key={activeCategory}>
+          {list.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index} />
+          ))}
         </div>
+
+        {isGame && (
+          <div className="store-row">
+            {stores.map((store, i) => (
+              <StoreCard key={store.key} store={store} index={list.length + i} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

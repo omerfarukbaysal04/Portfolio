@@ -92,11 +92,6 @@ const Navbar = () => {
             </li>
           ))}
           <li>
-            <a className="nav-resume-btn" href="/cv.pdf" download="OmerFarukBaysal_CV.pdf">
-              {t.nav.resume}
-            </a>
-          </li>
-          <li>
             <LanguageToggle />
           </li>
           <li>

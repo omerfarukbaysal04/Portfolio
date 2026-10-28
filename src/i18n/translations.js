@@ -7,14 +7,13 @@ export const translations = {
       about: 'About',
       projects: 'Projects',
       contact: 'Contact',
-      resume: 'Resume',
     },
     hero: {
       greeting: "Hello, I'm",
       description:
         'Computer Engineering student at Pamukkale University, passionate about building cybersecurity tools and immersive game experiences.',
       viewProjects: 'View Projects',
-      slideTag: 'What I do',
+      slideTag: 'My work',
     },
     about: {
       pre: 'About',
@@ -39,17 +38,14 @@ export const translations = {
       viewDetails: 'View Details',
       prev: 'Previous project',
       next: 'Next project',
-      storeBadge: 'Store',
       stores: {
         itch: {
           title: 'itch.io — Baysal Games',
           desc: 'All my games in one place. Play them in the browser or download them.',
-          cta: 'Visit itch.io',
         },
         play: {
           title: 'Google Play Store',
           desc: 'Get Glide Ball on your Android device from the Google Play Store.',
-          cta: 'Open on Google Play',
         },
       },
     },
@@ -58,6 +54,7 @@ export const translations = {
       hi: 'Connect',
       desc: "If you are interested in my work or would like to get in touch about anything, feel free to reach out. I'd love to hear from you!",
       button: 'Contact Me',
+      cv: 'Download CV',
     },
     footer: {
       rights: 'All rights reserved.',
@@ -85,14 +82,13 @@ export const translations = {
       about: 'Hakkımda',
       projects: 'Projeler',
       contact: 'İletişim',
-      resume: 'Özgeçmiş',
     },
     hero: {
       greeting: 'Merhaba, ben',
       description:
         'Pamukkale Üniversitesi Bilgisayar Mühendisliği öğrencisiyim; siber güvenlik alanında kendimi geliştiriyorum ve oyun geliştirmekle ilgileniyorum.',
       viewProjects: 'Projeleri Gör',
-      slideTag: 'Ne yapıyorum?',
+      slideTag: 'Çalışmalarım',
     },
     about: {
       pre: 'Hakkımda',
@@ -117,17 +113,14 @@ export const translations = {
       viewDetails: 'Detayları Gör',
       prev: 'Önceki proje',
       next: 'Sonraki proje',
-      storeBadge: 'Mağaza',
       stores: {
         itch: {
           title: 'itch.io — Baysal Games',
           desc: 'Tüm oyunlarım tek bir yerde. Tarayıcıda oyna ya da indir.',
-          cta: "itch.io'da Gör",
         },
         play: {
           title: 'Google Play Store',
           desc: "Glide Ball'u Google Play Store'dan Android cihazına indir.",
-          cta: "Google Play'de Aç",
         },
       },
     },
@@ -136,6 +129,7 @@ export const translations = {
       hi: 'Geç',
       desc: 'Çalışmalarımla ilgileniyorsan ya da herhangi bir konuda iletişime geçmek istersen çekinmeden ulaş. Senden haber almayı çok isterim!',
       button: 'Bana Ulaş',
+      cv: 'CV İndir',
     },
     footer: {
       rights: 'Tüm hakları saklıdır.',
