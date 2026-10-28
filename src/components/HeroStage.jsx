@@ -2,12 +2,12 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShieldHalved, FaBrain, FaCode, FaGamepad } from 'react-icons/fa6';
 import { highlights } from '../data/highlights';
-import { projects } from '../data/projects';
+import { projects, getProjectThumb } from '../data/projects';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const INTERVAL = 6000;
 const icons = { shield: FaShieldHalved, brain: FaBrain, code: FaCode, gamepad: FaGamepad };
-const titleOf = (slug) => projects.find((p) => p.slug === slug)?.title || slug;
+const findProject = (slug) => projects.find((p) => p.slug === slug);
 
 const CheckIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -59,9 +59,12 @@ const HeroStage = () => {
                 ))}
               </ul>
               <div className="hero-slide-projects">
-                {h.projects.map((slug) => (
-                  <Link key={slug} to={`/projects/${slug}`} tabIndex={isActive ? 0 : -1}>
-                    {titleOf(slug)}
+                {h.projects.map(findProject).filter(Boolean).map((p) => (
+                  <Link key={p.slug} to={`/projects/${p.slug}`} className="hero-mini-card" tabIndex={isActive ? 0 : -1}>
+                    <span className="hero-mini-thumb">
+                      <img src={getProjectThumb(p)} alt="" loading="lazy" />
+                    </span>
+                    <span className="hero-mini-title">{p.title}</span>
                   </Link>
                 ))}
               </div>

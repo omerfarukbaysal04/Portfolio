@@ -22,8 +22,6 @@
 //   year        (optional) string
 //   gallery     (optional) array of image paths under /public
 
-export const categoryKeys = ['all', 'cyber', 'game', 'web'];
-
 export const projects = [
   {
     slug: 'pentez-ai',
@@ -460,12 +458,14 @@ export const projects = [
 
 export const getProjectBySlug = (slug) => projects.find((p) => p.slug === slug);
 
-// Shown first on the home page; the first one gets the large bento tile.
-export const featuredSlugs = ['pentez-ai', 'tanilog', 'the-watchtower'];
+// Featured projects shown in the projects slider, in this order.
+export const featuredSlugs = ['pentez-ai', 'tanilog', 'glide-ball', 'stajio', 'the-watchtower', 'cost-of-redemption', 'baysal-nac-system'];
 
 // Card cover: image media directly, or the YouTube thumbnail for video projects.
-export const getProjectThumb = (p) => {
+// size 'large' uses the 1280x720 thumbnail (for big slides); default is 320x180.
+export const getProjectThumb = (p, size) => {
   if (p.media?.type === 'image') return p.media.src;
   const id = (p.media?.src?.match(/embed\/([^?/]+)/) || [])[1];
-  return id ? `https://img.youtube.com/vi/${id}/mqdefault.jpg` : null;
+  if (!id) return null;
+  return `https://img.youtube.com/vi/${id}/${size === 'large' ? 'maxresdefault' : 'mqdefault'}.jpg`;
 };

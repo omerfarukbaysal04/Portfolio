@@ -39,7 +39,8 @@ export const translations = {
         web: 'Web',
       },
       viewDetails: 'View Details',
-      subtitle: 'Selected work across cybersecurity, web and game development',
+      prev: 'Previous project',
+      next: 'Next project',
     },
     contact: {
       pre: "Let's",
@@ -105,7 +106,8 @@ export const translations = {
         web: 'Web',
       },
       viewDetails: 'Detayları Gör',
-      subtitle: 'Siber güvenlik, web ve oyun geliştirme alanlarındaki çalışmalarım',
+      prev: 'Önceki proje',
+      next: 'Sonraki proje',
     },
     contact: {
       pre: 'İletişime',

@@ -1,29 +1,24 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowIcon } from '../components/AnimatedSVGs';
-import { projects, categoryKeys, featuredSlugs, getProjectThumb } from '../data/projects';
+import FeaturedSlider from '../components/FeaturedSlider';
+import { projects, getProjectThumb } from '../data/projects';
 import { useLanguage } from '../i18n/LanguageContext';
 
-// Featured projects first, then the rest in data order.
-const orderedProjects = [
-  ...featuredSlugs.map((s) => projects.find((p) => p.slug === s)).filter(Boolean),
-  ...projects.filter((p) => !featuredSlugs.includes(p.slug)),
-];
+// Category groups shown under the featured slider, in this order.
+const groupOrder = ['cyber', 'web', 'game'];
 
-const ProjectCard = ({ project, large, index }) => {
+const ProjectCard = ({ project, index }) => {
   const { t, tr } = useLanguage();
   const thumb = getProjectThumb(project);
 
   return (
     <Link
       to={`/projects/${project.slug}`}
-      className={`project-card${large ? ' project-card--lg' : ''}`}
+      className="project-card"
       style={{ animationDelay: `${index * 0.05}s` }}
     >
       <div className="project-cover">
-        {/* Large tile shows the whole image (infographics contain text) over a blurred fill. */}
-        {thumb && large && <img className="project-cover-fill" src={thumb} alt="" aria-hidden="true" />}
-        {thumb && <img className="project-cover-img" src={thumb} alt={project.title} loading={index < 3 ? 'eager' : 'lazy'} />}
+        {thumb && <img className="project-cover-img" src={thumb} alt={project.title} loading="lazy" />}
         <span className="project-badge">{t.projects.categories[project.category]}</span>
         {project.media?.type === 'video' && (
           <span className="project-video-badge" aria-hidden="true">
@@ -35,7 +30,7 @@ const ProjectCard = ({ project, large, index }) => {
         <h3 className="project-title">{project.title}</h3>
         <p className="project-description">{tr(project.tagline)}</p>
         <div className="project-tags">
-          {project.tech.slice(0, large ? 5 : 3).map((tag) => (
+          {project.tech.slice(0, 3).map((tag) => (
             <span key={tag} className="project-tag">{tag}</span>
           ))}
         </div>
@@ -49,11 +44,7 @@ const ProjectCard = ({ project, large, index }) => {
 };
 
 const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
   const { t } = useLanguage();
-
-  const isAll = activeCategory === 'all';
-  const list = isAll ? orderedProjects : projects.filter((p) => p.category === activeCategory);
 
   return (
     <section id="projects" className="section projects-section">
@@ -62,26 +53,27 @@ const Projects = () => {
           <h2 className="section-title">
             {t.projects.pre} {t.projects.hi && <span className="gradient-text">{t.projects.hi}</span>}
           </h2>
-          <p className="section-subtitle projects-subtitle">{t.projects.subtitle}</p>
+        </div>
 
-          <div className="project-categories">
-            {categoryKeys.map((key) => (
-              <button
-                key={key}
-                className={`category-btn${activeCategory === key ? ' active' : ''}`}
-                onClick={() => setActiveCategory(key)}
-              >
+        <FeaturedSlider />
+
+        {groupOrder.map((key) => {
+          const list = projects.filter((p) => p.category === key);
+          if (list.length === 0) return null;
+          return (
+            <div key={key} className="project-group">
+              <h3 className="project-group-title reveal">
                 {t.projects.categories[key]}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="projects-grid" key={activeCategory}>
-          {list.map((project, index) => (
-            <ProjectCard key={project.slug} project={project} large={isAll && index === 0} index={index} />
-          ))}
-        </div>
+                <span className="project-group-count">{list.length}</span>
+              </h3>
+              <div className="projects-grid">
+                {list.map((project, index) => (
+                  <ProjectCard key={project.slug} project={project} index={index} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

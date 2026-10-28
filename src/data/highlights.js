@@ -15,7 +15,7 @@ export const highlights = [
       en: ['Autonomous pentesting with LLM agents', 'Continuous vulnerability & CVE scanning', 'Network access control (AAA / VLAN)'],
       tr: ['LLM ajanlarıyla otonom sızma testi', 'Sürekli zafiyet ve CVE taraması', 'Ağ erişim kontrolü (AAA / VLAN)'],
     },
-    projects: ['pentez-ai', 'the-watchtower', 'baysal-nac-system'],
+    projects: ['pentez-ai', 'the-watchtower'],
   },
   {
     icon: 'brain',
@@ -47,7 +47,7 @@ export const highlights = [
       en: ['React, Next.js & TypeScript', 'FastAPI, ASP.NET Core & Supabase', 'Containerised deploys with Docker'],
       tr: ['React, Next.js ve TypeScript', 'FastAPI, ASP.NET Core ve Supabase', 'Docker ile konteynerli dağıtım'],
     },
-    projects: ['stajio', 'tanilog', 'kitap-vitrini'],
+    projects: ['stajio', 'kitap-vitrini'],
   },
   {
     icon: 'gamepad',
@@ -63,6 +63,6 @@ export const highlights = [
       en: ['4 published games', 'Live on Google Play and itch.io', '2D platformers, pixel art, narrative'],
       tr: ['4 yayınlanmış oyun', 'Google Play ve itch.io’da yayında', '2D platform, pixel art, anlatı'],
     },
-    projects: ['glide-ball', 'a-fox-story', 'cost-of-redemption'],
+    projects: ['glide-ball', 'a-fox-story'],
   },
 ];
