@@ -53,6 +53,19 @@ export const translations = {
       button: 'Contact Me',
       cv: 'Download CV',
     },
+    whoami: {
+      pre: 'Who',
+      hi: 'am I?',
+      role: 'Computer Engineering student · Pamukkale University',
+      summary:
+        'I focus on cybersecurity — networking, incident analysis and penetration testing — and turn what I learn into tools and products. Outside security, I build games with Unity.',
+      facts: [
+        'Computer Engineering, Pamukkale University',
+        'Cybersecurity & penetration testing',
+        '4 published games on Google Play and itch.io',
+      ],
+      more: 'Read more about me',
+    },
     footer: {
       rights: 'All rights reserved.',
     },
@@ -124,6 +137,19 @@ export const translations = {
       desc: 'Çalışmalarımla ilgileniyorsan ya da herhangi bir konuda iletişime geçmek istersen çekinmeden ulaş. Senden haber almayı çok isterim!',
       button: 'Bana Ulaş',
       cv: 'CV İndir',
+    },
+    whoami: {
+      pre: 'Ben',
+      hi: 'Kimim?',
+      role: 'Bilgisayar Mühendisliği öğrencisi · Pamukkale Üniversitesi',
+      summary:
+        'Odağım siber güvenlik: ağ güvenliği, olay analizi ve sızma testi üzerine çalışıyor, öğrendiklerimi araçlara ve ürünlere dönüştürüyorum. Güvenliğin dışında Unity ile oyun geliştiriyorum.',
+      facts: [
+        'Bilgisayar Mühendisliği, Pamukkale Üniversitesi',
+        'Siber güvenlik ve sızma testi',
+        "Google Play ve itch.io'da 4 yayınlanmış oyun",
+      ],
+      more: 'Hakkımda devamını oku',
     },
     footer: {
       rights: 'Tüm hakları saklıdır.',

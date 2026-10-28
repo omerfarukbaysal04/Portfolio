@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ThemeToggle from '../components/ThemeToggle';
 import LanguageToggle from '../components/LanguageToggle';
 import { useLanguage } from '../i18n/LanguageContext';
 
-// Home-page sections are scrolled to; other items are separate routes.
+// Each item scrolls to a home-page section. "About" targets the "Who am I?" card,
+// which shares a row with Contact, so it is highlighted together with Contact
+// (spy) and also while on the full /about page (route).
 const navItems = [
   { key: 'projects', section: 'projects' },
-  { key: 'about', to: '/about' },
+  { key: 'about', section: 'whoami', spy: 'contact', route: '/about' },
   { key: 'contact', section: 'contact' },
 ];
-const homeSections = navItems.filter((i) => i.section).map((i) => i.section);
+const homeSections = [...new Set(navItems.map((i) => i.spy || i.section))];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -59,7 +61,8 @@ const Navbar = () => {
   };
 
   const isActive = (item) =>
-    item.to ? location.pathname === item.to : isHome && activeSection === item.section;
+    (item.route && location.pathname === item.route) ||
+    (isHome && activeSection === (item.spy || item.section));
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
@@ -72,23 +75,13 @@ const Navbar = () => {
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
           {navItems.map((item) => (
             <li key={item.key}>
-              {item.to ? (
-                <Link
-                  to={item.to}
-                  className={isActive(item) ? 'active' : ''}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {t.nav[item.key]}
-                </Link>
-              ) : (
-                <a
-                  href={`#${item.section}`}
-                  className={isActive(item) ? 'active' : ''}
-                  onClick={(e) => handleSectionClick(e, item.section)}
-                >
-                  {t.nav[item.key]}
-                </a>
-              )}
+              <a
+                href={`#${item.section}`}
+                className={isActive(item) ? 'active' : ''}
+                onClick={(e) => handleSectionClick(e, item.section)}
+              >
+                {t.nav[item.key]}
+              </a>
             </li>
           ))}
           <li>
