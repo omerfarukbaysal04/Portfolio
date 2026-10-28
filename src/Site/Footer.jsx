@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaYoutube, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaYoutube, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import { SiItchdotio } from 'react-icons/si';
 import { useLanguage } from '../i18n/LanguageContext';
 
@@ -7,7 +7,6 @@ const socials = [
   { icon: <FaGithub />, href: 'https://github.com/omerfarukbaysal04' },
   { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/baysal/' },
   { icon: <FaYoutube />, href: 'https://www.youtube.com/@omerfarukbaysall' },
-  { icon: <FaInstagram />, href: 'https://www.instagram.com/baysalsoft/' },
   { icon: <FaTwitter />, href: 'https://x.com/BaysalSoft' },
   { icon: <SiItchdotio />, href: 'https://baysalgames.itch.io' },
 ];

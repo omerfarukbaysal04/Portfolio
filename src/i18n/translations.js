@@ -5,10 +5,8 @@ export const translations = {
   en: {
     nav: {
       about: 'About',
-      skills: 'Skills',
       projects: 'Projects',
       contact: 'Contact',
-      social: 'Social',
       resume: 'Resume',
     },
     hero: {
@@ -18,6 +16,7 @@ export const translations = {
         'Computer Engineering student at Pamukkale University, passionate about building cybersecurity tools and immersive game experiences.',
       viewProjects: 'View Projects',
       downloadCV: 'Download CV',
+      slideTag: 'What I do',
     },
     about: {
       pre: 'About',
@@ -30,17 +29,6 @@ export const translations = {
       p2c: '.',
       p3: 'My goal is to build a career in cybersecurity, combining continuous learning with practical experience, while also pursuing creative projects that fuel my passion for technology.',
     },
-    skills: {
-      pre: 'Tech',
-      hi: 'Stack',
-      subtitle: 'Technologies and tools I work with',
-      categories: {
-        languages: 'Languages',
-        frameworks: 'Frameworks & Tools',
-        cybersecurity: 'Cybersecurity',
-        gamedev: 'Game Development',
-      },
-    },
     projects: {
       pre: 'My',
       hi: 'Projects',
@@ -52,13 +40,6 @@ export const translations = {
       },
       viewDetails: 'View Details',
       subtitle: 'Selected work across cybersecurity, web and game development',
-    },
-    social: {
-      pre: 'Social',
-      hi: 'Media',
-      subtitle: 'Follow my work across platforms',
-      openProfile: 'Open profile',
-      counts: { subscribers: 'Subscribers', followers: 'Followers', connections: 'Connections' },
     },
     contact: {
       pre: "Let's",
@@ -90,10 +71,8 @@ export const translations = {
   tr: {
     nav: {
       about: 'Hakkımda',
-      skills: 'Yetenekler',
       projects: 'Projeler',
       contact: 'İletişim',
-      social: 'Sosyal',
       resume: 'Özgeçmiş',
     },
     hero: {
@@ -103,6 +82,7 @@ export const translations = {
         'Pamukkale Üniversitesi Bilgisayar Mühendisliği öğrencisiyim; siber güvenlik alanında kendimi geliştiriyorum ve oyun geliştirmekle ilgileniyorum.',
       viewProjects: 'Projeleri Gör',
       downloadCV: 'CV İndir',
+      slideTag: 'Ne yapıyorum?',
     },
     about: {
       pre: 'Hakkımda',
@@ -115,17 +95,6 @@ export const translations = {
       p2c: " üzerinde yayınlıyorum.",
       p3: 'Hedefim, sürekli öğrenmeyi pratik deneyimle birleştirerek siber güvenlik alanında bir kariyer inşa etmek; aynı zamanda teknolojiye olan tutkumu besleyen yaratıcı projeler üretmeye devam etmek.',
     },
-    skills: {
-      pre: 'Teknoloji',
-      hi: '',
-      subtitle: 'Birlikte çalıştığım teknolojiler ve araçlar',
-      categories: {
-        languages: 'Diller',
-        frameworks: 'Çerçeveler & Araçlar',
-        cybersecurity: 'Siber Güvenlik',
-        gamedev: 'Oyun Geliştirme',
-      },
-    },
     projects: {
       pre: 'Projelerim',
       hi: '',
@@ -137,13 +106,6 @@ export const translations = {
       },
       viewDetails: 'Detayları Gör',
       subtitle: 'Siber güvenlik, web ve oyun geliştirme alanlarındaki çalışmalarım',
-    },
-    social: {
-      pre: 'Sosyal',
-      hi: 'Medya',
-      subtitle: 'Çalışmalarımı farklı platformlarda takip et',
-      openProfile: 'Profili aç',
-      counts: { subscribers: 'Abone', followers: 'Takipçi', connections: 'Bağlantı' },
     },
     contact: {
       pre: 'İletişime',

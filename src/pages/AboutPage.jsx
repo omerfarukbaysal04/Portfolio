@@ -1,6 +1,4 @@
 import About from '../Site/About';
-import Skills from '../Site/Skills';
-import SocialMedia from '../Site/SocialMedia';
 import { useScrollReveal } from '../components/AnimatedSVGs';
 
 const AboutPage = () => {
@@ -9,8 +7,6 @@ const AboutPage = () => {
   return (
     <div className="about-page">
       <About />
-      <Skills />
-      <SocialMedia />
     </div>
   );
 };

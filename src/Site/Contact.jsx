@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaYoutube, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaYoutube, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import { SiItchdotio } from 'react-icons/si';
 import { MailIcon } from '../components/AnimatedSVGs';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -8,7 +8,6 @@ const socials = [
   { icon: <FaGithub />, href: 'https://github.com/omerfarukbaysal04', label: 'GitHub' },
   { icon: <FaLinkedin />, href: 'https://www.linkedin.com/in/baysal/', label: 'LinkedIn' },
   { icon: <FaYoutube />, href: 'https://www.youtube.com/@omerfarukbaysall', label: 'YouTube' },
-  { icon: <FaInstagram />, href: 'https://www.instagram.com/baysalsoft/', label: 'Instagram' },
   { icon: <FaTwitter />, href: 'https://x.com/BaysalSoft', label: 'X / Twitter' },
   { icon: <SiItchdotio />, href: 'https://baysalgames.itch.io', label: 'itch.io' },
 ];

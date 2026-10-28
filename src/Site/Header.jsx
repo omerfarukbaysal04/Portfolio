@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { HeroDecoRings, DownloadIcon } from '../components/AnimatedSVGs';
+import HeroStage from '../components/HeroStage';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const Header = () => {
@@ -83,6 +84,8 @@ const Header = () => {
             </a>
           </div>
         </div>
+
+        <HeroStage />
       </div>
     </header>
   );
