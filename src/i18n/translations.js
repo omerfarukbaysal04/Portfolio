@@ -51,6 +51,7 @@ export const translations = {
         web: 'Web',
       },
       viewDetails: 'View Details',
+      subtitle: 'Selected work across cybersecurity, web and game development',
     },
     social: {
       pre: 'Social',
@@ -135,6 +136,7 @@ export const translations = {
         web: 'Web',
       },
       viewDetails: 'Detayları Gör',
+      subtitle: 'Siber güvenlik, web ve oyun geliştirme alanlarındaki çalışmalarım',
     },
     social: {
       pre: 'Sosyal',

@@ -7,6 +7,7 @@ import Preloader from './components/Preloader'
 import ScrollToTop from './components/ScrollToTop'
 import ParticleBackground from './components/ParticleBackground'
 import Home from './pages/Home'
+import AboutPage from './pages/AboutPage'
 import ProjectDetail from './pages/ProjectDetail'
 
 // Scroll to top on route change, unless we're navigating to a specific section.
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
       </Routes>
       <Footer />

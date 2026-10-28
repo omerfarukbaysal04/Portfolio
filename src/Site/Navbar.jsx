@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import ThemeToggle from '../components/ThemeToggle';
 import LanguageToggle from '../components/LanguageToggle';
 import { useLanguage } from '../i18n/LanguageContext';
 
-const sections = ['about', 'skills', 'projects', 'social', 'contact'];
+// Home-page sections are scrolled to; other items are separate routes.
+const navItems = [
+  { key: 'projects', section: 'projects' },
+  { key: 'about', to: '/about' },
+  { key: 'contact', section: 'contact' },
+];
+const homeSections = navItems.filter((i) => i.section).map((i) => i.section);
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -20,16 +26,15 @@ const Navbar = () => {
       setScrolled(window.scrollY > 50);
 
       if (!isHome) return;
-      // Detect active section
-      for (const id of [...sections].reverse()) {
+      let current = '';
+      for (const id of homeSections) {
         const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 200) {
-          setActiveSection(id);
-          break;
-        }
+        if (el && window.scrollY >= el.offsetTop - 200) current = id;
       }
+      setActiveSection(current);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHome]);
@@ -43,7 +48,7 @@ const Navbar = () => {
     }
   };
 
-  const handleNavClick = (e, id) => {
+  const handleSectionClick = (e, id) => {
     e.preventDefault();
     setMenuOpen(false);
     if (isHome) {
@@ -52,6 +57,9 @@ const Navbar = () => {
       navigate('/', { state: { scrollTo: id } });
     }
   };
+
+  const isActive = (item) =>
+    item.to ? location.pathname === item.to : isHome && activeSection === item.section;
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
@@ -62,15 +70,25 @@ const Navbar = () => {
         </button>
 
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-          {sections.map((item) => (
-            <li key={item}>
-              <a
-                href={`#${item}`}
-                className={isHome && activeSection === item ? 'active' : ''}
-                onClick={(e) => handleNavClick(e, item)}
-              >
-                {t.nav[item]}
-              </a>
+          {navItems.map((item) => (
+            <li key={item.key}>
+              {item.to ? (
+                <Link
+                  to={item.to}
+                  className={isActive(item) ? 'active' : ''}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {t.nav[item.key]}
+                </Link>
+              ) : (
+                <a
+                  href={`#${item.section}`}
+                  className={isActive(item) ? 'active' : ''}
+                  onClick={(e) => handleSectionClick(e, item.section)}
+                >
+                  {t.nav[item.key]}
+                </a>
+              )}
             </li>
           ))}
           <li>

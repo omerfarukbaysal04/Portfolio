@@ -459,3 +459,13 @@ export const projects = [
 ];
 
 export const getProjectBySlug = (slug) => projects.find((p) => p.slug === slug);
+
+// Shown first on the home page; the first one gets the large bento tile.
+export const featuredSlugs = ['pentez-ai', 'tanilog', 'the-watchtower'];
+
+// Card cover: image media directly, or the YouTube thumbnail for video projects.
+export const getProjectThumb = (p) => {
+  if (p.media?.type === 'image') return p.media.src;
+  const id = (p.media?.src?.match(/embed\/([^?/]+)/) || [])[1];
+  return id ? `https://img.youtube.com/vi/${id}/mqdefault.jpg` : null;
+};
