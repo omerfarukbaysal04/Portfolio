@@ -24,14 +24,14 @@ export const highlights = [
       tr: 'Yapay zekâ destekli ürünler',
     },
     desc: {
-      en: 'Applications that put LLMs to work on real problems — from decision-making agents to a health assistant.',
-      tr: 'LLM’leri gerçek problemlere bağlayan uygulamalar — karar veren ajanlardan sağlık asistanına.',
+      en: 'Applications that put LLMs to work on everyday problems — from a health assistant to building management.',
+      tr: 'LLM’leri gündelik problemlere bağlayan uygulamalar — sağlık asistanından site yönetimine.',
     },
     bullets: {
-      en: ['LLM-driven decision layers', 'Medical document analysis & voice assistant', 'Multi-agent, blackboard architecture'],
-      tr: ['LLM tabanlı karar katmanları', 'Tıbbi belge analizi ve sesli asistan', 'Çoklu ajan, blackboard mimarisi'],
+      en: ['Medical document analysis & voice assistant', 'Photo + text fault diagnosis', 'Scores, risks and recommended actions'],
+      tr: ['Tıbbi belge analizi ve sesli asistan', 'Fotoğraf + metinle arıza teşhisi', 'Skor, risk ve aksiyon önerileri'],
     },
-    projects: ['tanilog', 'pentez-ai'],
+    projects: ['tanilog', 'apart-ai'],
   },
   {
     icon: 'code',
@@ -44,10 +44,10 @@ export const highlights = [
       tr: 'Arayüzden veritabanına uçtan uca ürünler — geliştirilmiş, dağıtılmış ve yayında.',
     },
     bullets: {
-      en: ['React, Next.js & TypeScript', 'FastAPI, ASP.NET Core & Supabase', 'Containerised deploys with Docker'],
-      tr: ['React, Next.js ve TypeScript', 'FastAPI, ASP.NET Core ve Supabase', 'Docker ile konteynerli dağıtım'],
+      en: ['Next.js, React & vanilla JS', 'Node.js, PostgreSQL & Supabase', 'Deployed on Vercel & Render'],
+      tr: ['Next.js, React ve vanilla JS', 'Node.js, PostgreSQL ve Supabase', 'Vercel ve Render üzerinde yayında'],
     },
-    projects: ['stajio', 'kitap-vitrini'],
+    projects: ['stajio', 'apart-ai'],
   },
   {
     icon: 'gamepad',
@@ -63,6 +63,6 @@ export const highlights = [
       en: ['4 published games', 'Live on Google Play and itch.io', '2D platformers, pixel art, narrative'],
       tr: ['4 yayınlanmış oyun', 'Google Play ve itch.io’da yayında', '2D platform, pixel art, anlatı'],
     },
-    projects: ['glide-ball', 'a-fox-story'],
+    projects: ['glide-ball', 'cost-of-redemption'],
   },
 ];

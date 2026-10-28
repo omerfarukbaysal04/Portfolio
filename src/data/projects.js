@@ -108,6 +108,50 @@ export const projects = [
     gallery: ['/tanilog2.png', '/tanilog3.png', '/tanilog4.png'],
   },
   {
+    slug: 'apart-ai',
+    title: 'ApartAI',
+    category: 'web',
+    tagline: {
+      en: 'An AI-powered apartment and building management assistant that brings dues, maintenance requests, announcements, polls and finances into one panel.',
+      tr: 'Aidat, arıza/şikayet, duyuru, anket ve kasa süreçlerini tek panelde toplayan yapay zekâ destekli apartman ve site yönetim asistanı.',
+    },
+    overview: {
+      en: 'ApartAI is an AI-powered apartment and building management assistant. It brings dues, maintenance and complaint requests, announcements, polls and the building fund together in a single panel, then interprets the data to give managers a score, risks and recommended actions. Residents report a fault with a photo and two sentences; AI determines the category, urgency and location within seconds. The dependency-free vanilla JS frontend is served on Vercel, backed by a single-file Node.js server on Render and PostgreSQL (Supabase / Neon).',
+      tr: 'ApartAI, yapay zekâ destekli bir apartman ve site yönetim asistanıdır. Aidat, arıza/şikayet talepleri, duyurular, anketler ve kasa süreçlerini tek panelde toplar; verileri yorumlayıp yöneticiye skor, risk ve aksiyon önerisi sunar. Sakin bir fotoğraf çekip iki cümle yazarak arıza bildirir; kategori, aciliyet ve lokasyon saniyeler içinde yapay zekâ tarafından belirlenir. Bağımlılıksız vanilla JS arayüzü Vercel’de, tek dosyalık Node.js sunucusu Render’da çalışır; veriler PostgreSQL’de (Supabase / Neon) tutulur.',
+    },
+    media: { type: 'image', src: '/apart-ai.webp' },
+    tech: ['JavaScript', 'Node.js', 'PostgreSQL', 'Gemini AI', 'Supabase', 'Vercel'],
+    links: [
+      { label: { en: 'View on Website', tr: 'Web Sitesinde Gör' }, url: 'https://apart-ai.vercel.app', type: 'live' },
+      { label: { en: 'View on GitHub', tr: "GitHub'da Gör" }, url: 'https://github.com/omerfarukbaysal04/ApartAI', type: 'github' },
+    ],
+    features: {
+      en: [
+        'Multimodal AI request analysis — a photo and text set the category, urgency and location, with a rule-based fallback',
+        'Site Health Score (out of 100) with the reasons behind drops and recommended actions',
+        'Dues tracking with AI-drafted payment reminders',
+        'Building fund: income and expense management with an AI finance assistant',
+        'Digital polls, announcements with read tracking and a notification center',
+        'Multi-site support with role-based data scoping',
+        'Secure auth: scrypt password hashing, signed tokens and rate limiting',
+        'CSV bulk import of apartments and residents',
+      ],
+      tr: [
+        'Çok kipli yapay zekâ talep analizi — fotoğraf ve metinden kategori, aciliyet ve lokasyon; kural tabanlı yedek',
+        '100 üzerinden Site Sağlık Skoru; düşüş nedenleri ve önerilen aksiyonlar',
+        'Aidat takibi ve yapay zekâ ile hazırlanan ödeme hatırlatmaları',
+        'Apartman kasası: gelir-gider yönetimi ve yapay zekâ finans asistanı',
+        'Dijital anketler, okunma takibi olan duyurular ve bildirim merkezi',
+        'Çoklu site desteği ve rol bazlı veri kapsamı',
+        'Güvenli kimlik doğrulama: scrypt parola hash, imzalı token ve hız sınırlama',
+        'CSV ile toplu daire ve sakin aktarımı',
+      ],
+    },
+    role: { en: 'Full Stack Developer', tr: 'Full Stack Geliştirici' },
+    status: { en: 'Live', tr: 'Yayında' },
+    gallery: [],
+  },
+  {
     slug: 'stajio',
     title: 'Stajio',
     category: 'web',
@@ -193,49 +237,6 @@ export const projects = [
     },
     role: { en: 'Solo Developer', tr: 'Bağımsız Geliştirici' },
     status: { en: 'Active Development', tr: 'Aktif Geliştirme' },
-    gallery: [],
-  },
-  {
-    slug: 'baysal-nac-system',
-    title: 'Baysal NAC System',
-    category: 'cyber',
-    tagline: {
-      en: 'An API-driven Network Access Control system built on the AAA architecture, integrating FreeRADIUS with a custom FastAPI policy engine.',
-      tr: 'AAA mimarisi üzerine kurulu, FreeRADIUS’u özel bir FastAPI politika motoruyla bütünleştiren, API odaklı bir Ağ Erişim Kontrolü (NAC) sistemi.',
-    },
-    overview: {
-      en: 'Baysal NAC System is a modern, API-driven Network Access Control system built on the AAA (Authentication, Authorization, Accounting) architecture. It integrates FreeRADIUS with a custom FastAPI policy engine so that network access decisions are made dynamically: users are authenticated, assigned the right VLAN based on their group, and their sessions are tracked in real time. PostgreSQL stores credentials and session data while Redis keeps active sessions fast to query.',
-      tr: "Baysal NAC System, AAA (Kimlik Doğrulama, Yetkilendirme, Hesap Tutma) mimarisi üzerine kurulu, modern ve API odaklı bir Ağ Erişim Kontrolü sistemidir. FreeRADIUS'u özel bir FastAPI politika motoruyla bütünleştirir; böylece ağ erişim kararları dinamik olarak verilir: kullanıcılar doğrulanır, grubuna göre doğru VLAN'a atanır ve oturumları gerçek zamanlı izlenir. PostgreSQL kimlik bilgilerini ve oturum verilerini saklarken, Redis aktif oturumları hızlı sorgulanır tutar.",
-    },
-    media: { type: 'image', src: '/baysal-nac.webp' },
-    tech: ['Python', 'FastAPI', 'FreeRADIUS', 'PostgreSQL', 'Redis', 'Docker'],
-    links: [
-      { label: { en: 'View on GitHub', tr: "GitHub'da Gör" }, url: 'https://github.com/omerfarukbaysal04/baysal-nac-system', type: 'github' },
-    ],
-    features: {
-      en: [
-        'Dynamic VLAN assignment based on user group (admin, employee, guest)',
-        'Secure authentication with bcrypt password verification and rate limiting',
-        'Real-time session tracking with Accounting-Start/Stop records and metrics',
-        'API-driven AAA workflows exposed over RESTful endpoints',
-        'FreeRADIUS ↔ FastAPI integration via the rlm_rest module',
-        'PostgreSQL for persistent credential and session storage',
-        'Redis caching for fast in-memory session tracking',
-        'Containerized deployment with Docker Compose and health checks',
-      ],
-      tr: [
-        'Kullanıcı grubuna göre (admin, çalışan, misafir) dinamik VLAN ataması',
-        'bcrypt parola doğrulama ve hız sınırlama ile güvenli kimlik doğrulama',
-        'Accounting-Start/Stop kayıtları ve metriklerle gerçek zamanlı oturum izleme',
-        'RESTful uç noktalar üzerinden API odaklı AAA iş akışları',
-        'rlm_rest modülü aracılığıyla FreeRADIUS ↔ FastAPI entegrasyonu',
-        'Kalıcı kimlik bilgisi ve oturum depolaması için PostgreSQL',
-        'Hızlı bellek içi oturum izleme için Redis önbellekleme',
-        'Docker Compose ve sağlık kontrolleriyle konteynerli dağıtım',
-      ],
-    },
-    role: { en: 'Solo Developer', tr: 'Bağımsız Geliştirici' },
-    status: { en: 'Open Source', tr: 'Açık Kaynak' },
     gallery: [],
   },
   {
@@ -417,49 +418,12 @@ export const projects = [
     status: { en: 'Published', tr: 'Yayınlandı' },
     gallery: [],
   },
-  {
-    slug: 'kitap-vitrini',
-    title: 'Kitap Vitrini',
-    category: 'web',
-    tagline: {
-      en: 'A full-stack book showcase web application built with React, ASP.NET Core and MS SQL for a university course project.',
-      tr: 'React, ASP.NET Core ve MS SQL ile bir üniversite ders projesi olarak geliştirilmiş, full-stack bir kitap vitrini web uygulaması.',
-    },
-    overview: {
-      en: 'Kitap Vitrini (“Book Showcase”) is a full-stack web application for browsing and displaying a catalog of books. It pairs a React + TypeScript frontend with an ASP.NET Core backend and an MS SQL database. It was built as a university web development course project — and was my first proper full-stack website.',
-      tr: 'Kitap Vitrini, bir kitap kataloğunu görüntülemek ve sergilemek için geliştirilmiş full-stack bir web uygulamasıdır. React + TypeScript arayüzünü ASP.NET Core arka ucu ve MS SQL veritabanıyla birleştirir. Bir üniversite web geliştirme ders projesi olarak hazırlandı — ve ilk düzgün full-stack web sitemdi.',
-    },
-    media: { type: 'image', src: '/kitap-vitrini.png' },
-    tech: ['React', 'TypeScript', 'ASP.NET Core', 'MS SQL', 'Full Stack'],
-    links: [
-      { label: { en: 'View on GitHub', tr: "GitHub'da Gör" }, url: 'https://github.com/omerfarukbaysal04/Kitap-Vitrini', type: 'github' },
-    ],
-    features: {
-      en: [
-        'Book catalog browsing and showcase interface',
-        'React + TypeScript frontend',
-        'ASP.NET Core backend with an MS SQL database',
-        'Full-stack architecture (separate frontend and backend)',
-        'Built as a university web development course project',
-      ],
-      tr: [
-        'Kitap kataloğu gezinme ve vitrin arayüzü',
-        'React + TypeScript arayüz',
-        'MS SQL veritabanlı ASP.NET Core arka uç',
-        'Full-stack mimari (ayrı arayüz ve arka uç)',
-        'Üniversite web geliştirme ders projesi olarak geliştirildi',
-      ],
-    },
-    role: { en: 'Full Stack Developer', tr: 'Full Stack Geliştirici' },
-    status: { en: 'University Project', tr: 'Üniversite Projesi' },
-    gallery: [],
-  },
 ];
 
 export const getProjectBySlug = (slug) => projects.find((p) => p.slug === slug);
 
 // Featured projects shown in the projects slider, in this order.
-export const featuredSlugs = ['pentez-ai', 'tanilog', 'glide-ball', 'stajio', 'the-watchtower', 'cost-of-redemption', 'baysal-nac-system'];
+export const featuredSlugs = ['pentez-ai', 'tanilog', 'glide-ball', 'stajio', 'the-watchtower', 'cost-of-redemption', 'apart-ai'];
 
 // Card cover: image media directly, or the YouTube thumbnail for video projects.
 // size 'large' uses the 1280x720 thumbnail (for big slides); default is 320x180.

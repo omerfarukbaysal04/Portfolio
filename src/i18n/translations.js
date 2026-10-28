@@ -11,11 +11,9 @@ export const translations = {
     },
     hero: {
       greeting: "Hello, I'm",
-      roles: ['Cybersecurity Enthusiast', 'Game Developer', 'Penetration Tester'],
       description:
         'Computer Engineering student at Pamukkale University, passionate about building cybersecurity tools and immersive game experiences.',
       viewProjects: 'View Projects',
-      downloadCV: 'Download CV',
       slideTag: 'What I do',
     },
     about: {
@@ -41,6 +39,19 @@ export const translations = {
       viewDetails: 'View Details',
       prev: 'Previous project',
       next: 'Next project',
+      storeBadge: 'Store',
+      stores: {
+        itch: {
+          title: 'itch.io — Baysal Games',
+          desc: 'All my games in one place. Play them in the browser or download them.',
+          cta: 'Visit itch.io',
+        },
+        play: {
+          title: 'Google Play Store',
+          desc: 'Get Glide Ball on your Android device from the Google Play Store.',
+          cta: 'Open on Google Play',
+        },
+      },
     },
     contact: {
       pre: "Let's",
@@ -78,11 +89,9 @@ export const translations = {
     },
     hero: {
       greeting: 'Merhaba, ben',
-      roles: ['Siber Güvenlik', 'Oyun Geliştirici', 'Sızma Testi'],
       description:
         'Pamukkale Üniversitesi Bilgisayar Mühendisliği öğrencisiyim; siber güvenlik alanında kendimi geliştiriyorum ve oyun geliştirmekle ilgileniyorum.',
       viewProjects: 'Projeleri Gör',
-      downloadCV: 'CV İndir',
       slideTag: 'Ne yapıyorum?',
     },
     about: {
@@ -108,6 +117,19 @@ export const translations = {
       viewDetails: 'Detayları Gör',
       prev: 'Önceki proje',
       next: 'Sonraki proje',
+      storeBadge: 'Mağaza',
+      stores: {
+        itch: {
+          title: 'itch.io — Baysal Games',
+          desc: 'Tüm oyunlarım tek bir yerde. Tarayıcıda oyna ya da indir.',
+          cta: "itch.io'da Gör",
+        },
+        play: {
+          title: 'Google Play Store',
+          desc: "Glide Ball'u Google Play Store'dan Android cihazına indir.",
+          cta: "Google Play'de Aç",
+        },
+      },
     },
     contact: {
       pre: 'İletişime',
