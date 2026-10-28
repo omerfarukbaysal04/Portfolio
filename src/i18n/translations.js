@@ -9,11 +9,8 @@ export const translations = {
       contact: 'Contact',
     },
     hero: {
-      greeting: "Hello, I'm",
       description:
         'Computer Engineering student at Pamukkale University, passionate about building cybersecurity tools and immersive game experiences.',
-      viewProjects: 'View Projects',
-      slideTag: 'My work',
     },
     about: {
       pre: 'About',
@@ -84,11 +81,8 @@ export const translations = {
       contact: 'İletişim',
     },
     hero: {
-      greeting: 'Merhaba, ben',
       description:
         'Pamukkale Üniversitesi Bilgisayar Mühendisliği öğrencisiyim; siber güvenlik alanında kendimi geliştiriyorum ve oyun geliştirmekle ilgileniyorum.',
-      viewProjects: 'Projeleri Gör',
-      slideTag: 'Çalışmalarım',
     },
     about: {
       pre: 'Hakkımda',

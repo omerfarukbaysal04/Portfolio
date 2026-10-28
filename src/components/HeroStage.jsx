@@ -15,12 +15,12 @@ const CheckIcon = () => (
   </svg>
 );
 
-// Auto-rotating "what I do" slides (stacked; the active one comes forward).
+// Auto-rotating focus-area slides (stacked; the active one comes forward).
+// Pauses on hover and when the user prefers reduced motion.
 const HeroStage = () => {
-  const { t, tr } = useLanguage();
+  const { tr } = useLanguage();
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
-  const [resetKey, setResetKey] = useState(0); // restart the timer after a manual pick
   const reduced = useRef(
     typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
   );
@@ -30,12 +30,7 @@ const HeroStage = () => {
     if (!active) return undefined;
     const id = setInterval(() => setIndex((i) => (i + 1) % highlights.length), INTERVAL);
     return () => clearInterval(id);
-  }, [active, resetKey]);
-
-  const goTo = (i) => {
-    setIndex(i);
-    setResetKey((k) => k + 1);
-  };
+  }, [active]);
 
   return (
     <div
@@ -51,7 +46,6 @@ const HeroStage = () => {
             <article key={h.icon} className={`hero-slide${isActive ? ' is-active' : ''}`} aria-hidden={!isActive}>
               <span className="hero-slide-ghost" aria-hidden="true"><Icon /></span>
               <div className="hero-slide-info">
-                <span className="hero-slide-tag">{t.hero.slideTag}</span>
                 <h3 className="hero-slide-title">{tr(h.title)}</h3>
                 <p className="hero-slide-desc">{tr(h.desc)}</p>
                 <ul className="hero-slide-bullets">
@@ -76,26 +70,6 @@ const HeroStage = () => {
             </article>
           );
         })}
-      </div>
-
-      <div className="hero-stage-dots">
-        {highlights.map((h, i) => (
-          <button
-            key={h.icon}
-            type="button"
-            className={`hero-stage-dot${i === index ? ' is-active' : ''}`}
-            onClick={() => goTo(i)}
-            aria-label={tr(h.title)}
-          >
-            {i === index && (
-              <span
-                key={`${index}-${resetKey}`}
-                className="hero-stage-dot-fill"
-                style={{ animationDuration: `${INTERVAL}ms`, animationPlayState: active ? 'running' : 'paused' }}
-              />
-            )}
-          </button>
-        ))}
       </div>
     </div>
   );
