@@ -1,8 +1,9 @@
 /* ============================================
    NAVBAR
    ============================================ */
+/* Sits at the top of the page and scrolls away with it (not sticky). */
 .navbar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
