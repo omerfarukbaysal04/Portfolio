@@ -13,6 +13,9 @@
   align-items: center;
   transition: all var(--transition-normal);
   background: transparent;
+  /* .scrolled's backdrop-filter makes the navbar the containing block of the
+     fixed mobile menu; clip so the off-screen menu can't widen the page. */
+  overflow-x: clip;
 }
 
 .navbar.scrolled {
@@ -1310,19 +1313,104 @@
   line-height: 1.7;
 }
 
-.contact-actions {
+/* Bottom row: social icons, then the CV button */
+.contact-footer {
+  margin-top: auto;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
 }
 
-.contact-actions .contact-btn,
-.contact-actions .contact-cv {
+.contact-footer .contact-cv {
   justify-content: center;
+  height: 40px; /* same height as the social icons */
+  padding: 0 20px;
 }
 
-.contact-wrapper .contact-socials {
-  margin-top: auto;
+/* Contact form (Netlify Forms) */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.contact-field input,
+.contact-field textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--bg-glass-border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.contact-field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.18);
+}
+
+.contact-form .contact-btn {
+  align-self: flex-start;
+}
+
+.contact-form .contact-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+.contact-form-status {
+  font-size: 0.9rem;
+}
+
+.contact-form-status.is-success {
+  color: var(--accent-secondary);
+}
+
+.contact-form-status.is-error {
+  color: var(--accent-tertiary);
+}
+
+.contact-email {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.contact-email a {
+  color: var(--accent-primary);
+  word-break: break-all;
+}
+
+@media (max-width: 600px) {
+  .contact-form-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* "Who am I?" summary card */
@@ -1702,7 +1790,7 @@
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 80%;
     max-width: 320px;
     height: 100vh;
@@ -1714,7 +1802,10 @@
     justify-content: center;
     gap: 16px;
     padding: 40px;
-    transition: right var(--transition-normal);
+    /* Closed: slid out and hidden (also keeps its links out of the tab order) */
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform var(--transition-normal), visibility var(--transition-normal);
     border-left: 1px solid var(--bg-glass-border);
     z-index: 1001;
     -webkit-overflow-scrolling: touch;
@@ -1722,7 +1813,8 @@
   }
 
   .nav-links.open {
-    right: 0;
+    transform: none;
+    visibility: visible;
   }
 
   .nav-links a {

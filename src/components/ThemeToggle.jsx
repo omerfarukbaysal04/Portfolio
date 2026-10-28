@@ -1,23 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    return saved ? saved === 'dark' : true;
-  });
+  const { t } = useLanguage();
+  // index.html already applied the saved theme before first paint; start from it.
+  const [isDark, setIsDark] = useState(
+    () => document.documentElement.getAttribute('data-theme') !== 'light'
+  );
 
   useEffect(() => {
     const theme = isDark ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    try {
+      localStorage.setItem('theme', theme);
+    } catch {
+      // storage blocked (private mode etc.) — theme just won't persist
+    }
   }, [isDark]);
 
   return (
     <button
       className="theme-toggle"
       onClick={() => setIsDark(!isDark)}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      title={isDark ? 'Light Mode' : 'Dark Mode'}
+      aria-label={isDark ? t.a11y.toLight : t.a11y.toDark}
+      title={isDark ? t.a11y.lightTitle : t.a11y.darkTitle}
     >
       {isDark ? (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

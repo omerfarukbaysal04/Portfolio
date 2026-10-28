@@ -5,7 +5,12 @@ const LanguageContext = createContext(null);
 
 const getInitialLang = () => {
   if (typeof window === 'undefined') return 'en';
-  const saved = localStorage.getItem('lang');
+  let saved = null;
+  try {
+    saved = localStorage.getItem('lang');
+  } catch {
+    // storage blocked — fall back to the browser language
+  }
   if (saved === 'en' || saved === 'tr') return saved;
   return navigator.language?.toLowerCase().startsWith('tr') ? 'tr' : 'en';
 };
@@ -22,7 +27,11 @@ export const LanguageProvider = ({ children }) => {
   const [lang, setLang] = useState(getInitialLang);
 
   useEffect(() => {
-    localStorage.setItem('lang', lang);
+    try {
+      localStorage.setItem('lang', lang);
+    } catch {
+      // storage blocked — language just won't persist
+    }
     document.documentElement.setAttribute('lang', lang);
   }, [lang]);
 

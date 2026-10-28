@@ -1,24 +1,16 @@
 import { useParams, Link } from 'react-router-dom';
 import { getProjectBySlug } from '../data/projects';
 import { useScrollReveal } from '../components/AnimatedSVGs';
+import { usePageMeta } from '../components/usePageMeta';
 import { useLanguage } from '../i18n/LanguageContext';
 import LazyVideo from '../components/LazyVideo';
+import NotFound from './NotFound';
 
-const NotFound = () => {
-  const { t } = useLanguage();
-  return (
-    <section className="section project-detail">
-      <div className="container">
-        <div className="glass-card project-detail-notfound">
-          <h1 className="section-title">
-            {t.detail.notFoundTitlePre} <span className="gradient-text">{t.detail.notFoundTitleHi}</span>
-          </h1>
-          <p>{t.detail.notFoundText}</p>
-          <Link to="/" className="btn-primary">{t.detail.backHome}</Link>
-        </div>
-      </div>
-    </section>
-  );
+// Separate component so its usePageMeta call isn't conditional.
+const ProjectMeta = ({ project }) => {
+  const { tr } = useLanguage();
+  usePageMeta({ title: project.title, description: tr(project.tagline), path: `/projects/${project.slug}` });
+  return null;
 };
 
 const ProjectDetail = () => {
@@ -27,7 +19,9 @@ const ProjectDetail = () => {
   const { t, tr } = useLanguage();
   useScrollReveal();
 
-  if (!project) return <NotFound />;
+  if (!project) {
+    return <NotFound pre={t.detail.notFoundTitlePre} hi={t.detail.notFoundTitleHi} text={t.detail.notFoundText} />;
+  }
 
   const { title, media, tech, links, year, category } = project;
   const tagline = tr(project.tagline);
@@ -45,6 +39,7 @@ const ProjectDetail = () => {
 
   return (
     <section className="section project-detail">
+      <ProjectMeta project={project} />
       <div className="container">
         <Link to="/projects" className="project-detail-back">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

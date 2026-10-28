@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaGithub, FaYoutube, FaTwitter, FaLinkedin } from 'react-icons/fa';
 import { SiItchdotio } from 'react-icons/si';
 import { useLanguage } from '../i18n/LanguageContext';

@@ -67,7 +67,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <button type="button" className="nav-logo" onClick={goToTop} aria-label="Back to top">
+        <button type="button" className="nav-logo" onClick={goToTop} aria-label={t.a11y.backToTop}>
           <img src="/logo.png" alt="Logo" />
           <span className="nav-logo-text">ÖMER FARUK BAYSAL</span>
         </button>
@@ -92,7 +92,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+        <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)} aria-label={t.a11y.toggleMenu} aria-expanded={menuOpen}>
           <div className={`hamburger ${menuOpen ? 'open' : ''}`}>
             <span></span>
             <span></span>

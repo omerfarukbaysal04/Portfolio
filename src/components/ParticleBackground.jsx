@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const ParticleBackground = () => {
   const svgRef = useRef(null);
@@ -22,7 +22,7 @@ const ParticleBackground = () => {
   // keep the animation light on mobile.
   const isSmallScreen = typeof window !== 'undefined' && window.innerWidth < 768;
   const particleCount = isSmallScreen ? 20 : 35;
-  const particles = Array.from({ length: particleCount }, (_, i) => ({
+  const particles = Array.from({ length: particleCount }, () => ({
     cx: Math.random() * 100,
     cy: Math.random() * 100,
     r: 0.5 + Math.random() * 2,
@@ -33,7 +33,7 @@ const ParticleBackground = () => {
 
   // Generate connection lines
   const lineCount = isSmallScreen ? 8 : 12;
-  const lines = Array.from({ length: lineCount }, (_, i) => ({
+  const lines = Array.from({ length: lineCount }, () => ({
     x1: Math.random() * 100,
     y1: Math.random() * 100,
     x2: Math.random() * 100,

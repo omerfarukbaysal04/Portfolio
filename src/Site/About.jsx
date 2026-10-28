@@ -1,4 +1,3 @@
-import React from 'react';
 import { AboutFrame } from '../components/AnimatedSVGs';
 import { useLanguage } from '../i18n/LanguageContext';
 
