@@ -50,21 +50,26 @@ const HeroStage = () => {
           return (
             <article key={h.icon} className={`hero-slide${isActive ? ' is-active' : ''}`} aria-hidden={!isActive}>
               <span className="hero-slide-ghost" aria-hidden="true"><Icon /></span>
-              <span className="hero-slide-tag">{t.hero.slideTag}</span>
-              <h3 className="hero-slide-title">{tr(h.title)}</h3>
-              <p className="hero-slide-desc">{tr(h.desc)}</p>
-              <ul className="hero-slide-bullets">
-                {tr(h.bullets).map((b) => (
-                  <li key={b}><CheckIcon />{b}</li>
-                ))}
-              </ul>
-              <div className="hero-slide-projects">
+              <div className="hero-slide-info">
+                <span className="hero-slide-tag">{t.hero.slideTag}</span>
+                <h3 className="hero-slide-title">{tr(h.title)}</h3>
+                <p className="hero-slide-desc">{tr(h.desc)}</p>
+                <ul className="hero-slide-bullets">
+                  {tr(h.bullets).map((b) => (
+                    <li key={b}><CheckIcon />{b}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="hero-slide-projects" style={{ '--cols': h.projects.length }}>
                 {h.projects.map(findProject).filter(Boolean).map((p) => (
                   <Link key={p.slug} to={`/projects/${p.slug}`} className="hero-mini-card" tabIndex={isActive ? 0 : -1}>
                     <span className="hero-mini-thumb">
                       <img src={getProjectThumb(p)} alt="" loading="lazy" />
                     </span>
-                    <span className="hero-mini-title">{p.title}</span>
+                    <span className="hero-mini-body">
+                      <span className="hero-mini-title">{p.title}</span>
+                      <span className="hero-mini-desc">{tr(p.tagline)}</span>
+                    </span>
                   </Link>
                 ))}
               </div>

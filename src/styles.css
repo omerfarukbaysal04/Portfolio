@@ -156,14 +156,26 @@
   position: relative;
   z-index: 2;
   display: flex;
-  align-items: center;
-  gap: 60px;
+  flex-direction: column;
+  gap: 32px;
 }
 
-.hero-content {
-  flex: 1;
-  min-width: 0;
+.hero-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
   animation: fadeInUp 1s ease forwards;
+}
+
+.hero-intro-main {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.hero-intro-side {
+  flex: 0 1 520px;
+  min-width: 0;
 }
 
 .hero-greeting {
@@ -182,20 +194,18 @@
 }
 
 .hero-name {
-  font-size: clamp(2rem, 3.6vw, 3.5rem);
+  font-size: clamp(2.25rem, 5vw, 4.25rem);
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 20px;
+  line-height: 1.05;
   letter-spacing: -0.03em;
   white-space: nowrap;
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text-secondary);
-  max-width: 540px;
-  line-height: 1.8;
-  margin-bottom: 36px;
+  line-height: 1.75;
+  margin-bottom: 22px;
 }
 
 .hero-cta {
@@ -206,8 +216,7 @@
 
 /* Hero stage: auto-rotating "what I do" slides */
 .hero-stage-wrap {
-  flex: 0 0 540px;
-  max-width: 540px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -223,10 +232,11 @@
   grid-area: 1 / 1;
   position: relative;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 30px 30px 26px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.75fr);
+  align-items: center;
+  gap: 36px;
+  padding: 32px 36px;
   border-radius: var(--card-radius);
   background: var(--bg-card);
   border: 1px solid var(--bg-glass-border);
@@ -261,6 +271,14 @@
 
 .hero-slide-ghost svg {
   display: block;
+}
+
+.hero-slide-info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
 }
 
 .hero-slide-tag {
@@ -318,9 +336,8 @@
 .hero-slide-projects {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 6px;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  gap: 14px;
 }
 
 .hero-mini-card {
@@ -359,14 +376,32 @@
   transform: scale(1.06);
 }
 
+.hero-mini-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px 12px;
+}
+
 .hero-mini-title {
-  padding: 8px 12px 10px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.3;
   color: var(--text-primary);
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.hero-mini-desc {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .hero-stage-dots {
@@ -930,21 +965,6 @@
   transform: scale(1.05);
 }
 
-.project-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 5px 10px;
-  border-radius: 999px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  z-index: 2;
-}
 
 .project-video-badge {
   position: absolute;
@@ -1566,9 +1586,29 @@
   }
 
   .hero .container {
-    flex-direction: column;
     text-align: center;
-    gap: 40px;
+    gap: 36px;
+  }
+
+  .hero-intro {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hero-intro-side {
+    flex: none;
+    max-width: 560px;
+  }
+
+  .hero-slide {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding: 26px 22px;
+  }
+
+  .hero-slide-projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-greeting {
@@ -1576,9 +1616,7 @@
   }
 
   .hero-stage-wrap {
-    flex: none;
-    width: 100%;
-    max-width: 520px;
+    max-width: 620px;
     margin: 0 auto;
   }
 
@@ -1591,7 +1629,7 @@
   }
 
   .hero-description {
-    margin: 0 auto 36px;
+    margin: 0 auto 22px;
   }
 
   .hero-cta {

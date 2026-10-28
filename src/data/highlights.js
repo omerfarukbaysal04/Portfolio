@@ -15,7 +15,7 @@ export const highlights = [
       en: ['Autonomous pentesting with LLM agents', 'Continuous vulnerability & CVE scanning', 'Network access control (AAA / VLAN)'],
       tr: ['LLM ajanlarıyla otonom sızma testi', 'Sürekli zafiyet ve CVE taraması', 'Ağ erişim kontrolü (AAA / VLAN)'],
     },
-    projects: ['pentez-ai', 'the-watchtower'],
+    projects: ['pentez-ai', 'the-watchtower', 'cyber-security-tools'],
   },
   {
     icon: 'brain',
@@ -31,7 +31,7 @@ export const highlights = [
       en: ['Medical document analysis & voice assistant', 'Photo + text fault diagnosis', 'Scores, risks and recommended actions'],
       tr: ['Tıbbi belge analizi ve sesli asistan', 'Fotoğraf + metinle arıza teşhisi', 'Skor, risk ve aksiyon önerileri'],
     },
-    projects: ['tanilog', 'apart-ai'],
+    projects: ['tanilog', 'apart-ai', 'pentez-ai'],
   },
   {
     icon: 'code',
@@ -47,7 +47,7 @@ export const highlights = [
       en: ['Next.js, React & vanilla JS', 'Node.js, PostgreSQL & Supabase', 'Deployed on Vercel & Render'],
       tr: ['Next.js, React ve vanilla JS', 'Node.js, PostgreSQL ve Supabase', 'Vercel ve Render üzerinde yayında'],
     },
-    projects: ['stajio', 'apart-ai'],
+    projects: ['apart-ai', 'stajio', 'tanilog'],
   },
   {
     icon: 'gamepad',
@@ -63,6 +63,6 @@ export const highlights = [
       en: ['4 published games', 'Live on Google Play and itch.io', '2D platformers, pixel art, narrative'],
       tr: ['4 yayınlanmış oyun', 'Google Play ve itch.io’da yayında', '2D platform, pixel art, anlatı'],
     },
-    projects: ['glide-ball', 'cost-of-redemption'],
+    projects: ['glide-ball', 'cost-of-redemption', 'a-fox-story', 'dodge-the-asteroids'],
   },
 ];
