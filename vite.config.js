@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { projects, getProjectThumb } from './src/data/projects.js'
 import { translations } from './src/i18n/translations.js'
+import { labTopics, LABS_COVER } from './src/data/labs.js'
 
 const SITE_URL = 'https://omerfarukbaysal.netlify.app'
 const NAME = 'Ömer Faruk Baysal'
@@ -14,7 +15,13 @@ const sitemap = () => ({
   name: 'sitemap',
   apply: 'build',
   generateBundle() {
-    const paths = ['/', '/about', ...projects.map((p) => `/projects/${p.slug}`)]
+    const paths = [
+      '/',
+      '/about',
+      ...projects.map((p) => `/projects/${p.slug}`),
+      '/labs',
+      ...labTopics.map((topic) => `/labs/${topic.slug}`),
+    ]
     const urls = paths.map((p) => `  <url><loc>${SITE_URL}${p}</loc></url>`).join('\n')
     this.emitFile({
       type: 'asset',
@@ -29,7 +36,7 @@ const escapeHtml = (s) =>
 
 // Link previews (LinkedIn, WhatsApp, X…) don't run JavaScript, so they only see
 // the meta tags in the HTML file itself. This writes a copy of index.html for
-// /about and every /projects/<slug> with that page's title, description, URL
+// /about, /labs, every /labs/<topic> and every /projects/<slug> with that page's title, description, URL
 // and image filled in. Netlify serves about.html at /about before falling back
 // to the SPA redirect; the React app then takes over as usual.
 const pageMeta = () => ({
@@ -47,6 +54,22 @@ const pageMeta = () => ({
         title: `${translations.en.nav.about} | ${NAME}`,
         description: translations.en.whoami.summary,
       },
+      // Written twice: /labs sits next to the labs/ folder of topic pages, so
+      // either file may be the one Netlify serves for it
+      ...['labs.html', 'labs/index.html'].map((file) => ({
+        file,
+        path: '/labs',
+        title: `${translations.en.labs.title} | ${NAME}`,
+        description: translations.en.labs.intro,
+        image: SITE_URL + LABS_COVER,
+      })),
+      ...labTopics.map((topic) => ({
+        file: `labs/${topic.slug}.html`,
+        path: `/labs/${topic.slug}`,
+        title: `${topic.title} Labs | ${NAME}`,
+        description: topic.desc.en,
+        image: SITE_URL + LABS_COVER,
+      })),
       ...projects.map((p) => {
         const thumb = getProjectThumb(p, 'large')
         return {

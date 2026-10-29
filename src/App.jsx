@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import AboutPage from './pages/AboutPage'
 import ProjectDetail from './pages/ProjectDetail'
 import NotFound from './pages/NotFound'
+import { LabsHome, LabTopic } from './pages/Labs'
 
 // Scroll to top on route change, unless we're navigating to a specific section.
 function ScrollRestoration() {
@@ -34,7 +35,9 @@ function App() {
         <Route path="/projects" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/labs" element={<LabsHome />} />
+        <Route path="/labs/:slug" element={<LabTopic />} />
+        <Route path="*"element={<NotFound />} />
       </Routes>
       <Footer />
       <ScrollToTop />

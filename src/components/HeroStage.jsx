@@ -3,11 +3,19 @@ import { Link } from 'react-router-dom';
 import { FaShieldHalved, FaBrain, FaCode, FaGamepad } from 'react-icons/fa6';
 import { highlights } from '../data/highlights';
 import { projects, getProjectThumb } from '../data/projects';
+import { LABS_COVER } from '../data/labs';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const INTERVAL = 6000;
 const icons = { shield: FaShieldHalved, brain: FaBrain, code: FaCode, gamepad: FaGamepad };
-const findProject = (slug) => projects.find((p) => p.slug === slug);
+// Mini-card content for a slide entry: a project slug, or 'labs' for the lab reports page.
+const toCard = (slug, t, tr) => {
+  if (slug === 'labs') {
+    return { key: slug, to: '/labs', title: t.labs.shortTitle, desc: t.projects.labsCard.desc, thumb: LABS_COVER };
+  }
+  const p = projects.find((project) => project.slug === slug);
+  return p && { key: slug, to: `/projects/${slug}`, title: p.title, desc: tr(p.tagline), thumb: getProjectThumb(p) };
+};
 
 const CheckIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -18,7 +26,7 @@ const CheckIcon = () => (
 // Auto-rotating focus-area slides (stacked; the active one comes forward).
 // Pauses on hover and when the user prefers reduced motion.
 const HeroStage = () => {
-  const { tr } = useLanguage();
+  const { t, tr } = useLanguage();
   const [index, setIndex] = useState(0);
   const [hovered, setHovered] = useState(false);
   const [resetKey, setResetKey] = useState(0); // restart the timer after a manual pick
@@ -61,14 +69,14 @@ const HeroStage = () => {
                 </ul>
               </div>
               <div className="hero-slide-projects" style={{ '--cols': h.projects.length }}>
-                {h.projects.map(findProject).filter(Boolean).map((p) => (
-                  <Link key={p.slug} to={`/projects/${p.slug}`} className="hero-mini-card" tabIndex={isActive ? 0 : -1}>
+                {h.projects.map((slug) => toCard(slug, t, tr)).filter(Boolean).map((card) => (
+                  <Link key={card.key} to={card.to} className="hero-mini-card" tabIndex={isActive ? 0 : -1}>
                     <span className="hero-mini-thumb">
-                      <img src={getProjectThumb(p)} alt="" loading="lazy" />
+                      <img src={card.thumb} alt="" loading="lazy" />
                     </span>
                     <span className="hero-mini-body">
-                      <span className="hero-mini-title">{p.title}</span>
-                      <span className="hero-mini-desc">{tr(p.tagline)}</span>
+                      <span className="hero-mini-title">{card.title}</span>
+                      <span className="hero-mini-desc">{card.desc}</span>
                     </span>
                   </Link>
                 ))}

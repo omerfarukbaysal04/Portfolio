@@ -1280,6 +1280,363 @@
 }
 
 /* ============================================
+   LAB REPORTS (/labs, /labs/<topic>)
+   ============================================ */
+/* Card under the cyber projects, same look as the store cards */
+.store-row--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.store-mini--labs {
+  gap: 32px;
+  padding: 0 30px 0 0;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+}
+
+.labs-card-cover {
+  flex: 0 0 42%;
+  align-self: stretch;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.labs-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.store-mini--labs:hover .labs-card-cover img {
+  transform: scale(1.04);
+}
+
+.store-mini--labs .store-mini-text {
+  padding: 24px 0;
+}
+
+.store-mini--labs .store-mini-text {
+  gap: 8px;
+}
+
+.store-mini--labs .store-mini-title {
+  font-size: 1.25rem;
+}
+
+.store-mini--labs .store-mini-desc {
+  font-size: 0.95rem;
+  white-space: normal;
+}
+
+.store-mini--labs .project-tags {
+  margin-top: 6px;
+}
+
+.store-mini--labs > svg {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  color: var(--accent-secondary);
+  transition: transform var(--transition-fast);
+}
+
+.store-mini--labs:hover > svg {
+  transform: translateX(3px);
+}
+
+/* Intro on the left, stat boxes on the right */
+.labs-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.labs-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: -8px;
+}
+
+.labs-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Platform name is the widest value, give it the full row */
+.labs-stat:last-child {
+  grid-column: 1 / -1;
+}
+
+.labs-stat {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.labs-stat:hover {
+  transform: none;
+}
+
+.labs-stat-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.lab-topic-head .project-tag {
+  white-space: nowrap;
+}
+
+.labs-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.labs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.lab-topic {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: inherit;
+  animation: fadeInUp 0.5s ease both;
+}
+
+.lab-topic:hover {
+  color: inherit;
+}
+
+.lab-topic:hover .project-cta {
+  gap: 12px;
+}
+
+.lab-topic-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lab-topic-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.lab-topic-desc {
+  flex: 1;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Topic page */
+.lab-topic-tabs {
+  justify-content: flex-start;
+  margin-bottom: 32px;
+}
+
+.lab-topic-tabs .category-btn {
+  padding: 8px 18px;
+  font-size: 0.8rem;
+}
+
+.lab-topic-header .project-detail-tagline {
+  margin-bottom: 32px;
+}
+
+.lab-viewer-layout {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.lab-report-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lab-report {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  font: inherit;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.lab-report:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.lab-report.active {
+  border-color: var(--accent-primary);
+  background: rgba(108, 99, 255, 0.12);
+}
+
+.lab-report-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.lab-risk {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: 1px solid currentColor;
+}
+
+.lab-risk-score {
+  opacity: 0.8;
+}
+
+.lab-risk--critical { color: #f87171; }
+.lab-risk--high { color: #fb923c; }
+.lab-risk--medium { color: #facc15; }
+.lab-risk--low { color: #4ade80; }
+
+[data-theme="light"] .lab-risk--critical { color: #dc2626; }
+[data-theme="light"] .lab-risk--high { color: #ea580c; }
+[data-theme="light"] .lab-risk--medium { color: #a16207; }
+[data-theme="light"] .lab-risk--low { color: #15803d; }
+
+.lab-viewer {
+  overflow: hidden;
+}
+
+.lab-viewer:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.lab-viewer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--bg-glass-border);
+}
+
+.lab-viewer-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.lab-viewer-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.lab-viewer-actions .btn-secondary {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+.lab-viewer-frame {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  min-height: 520px;
+  border: 0;
+  background: #525659;
+}
+
+.lab-viewer-mobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .lab-viewer-layout,
+  .labs-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .labs-hero {
+    gap: 28px;
+  }
+
+  .labs-stats {
+    max-width: 420px;
+  }
+}
+
+/* Phones: no inline PDF, open it in a new tab instead */
+@media (max-width: 768px) {
+  .lab-viewer-frame,
+  .lab-viewer-actions a:first-child {
+    display: none;
+  }
+
+  .lab-viewer-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 18px;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+  }
+
+  .labs-stat {
+    padding: 14px 16px;
+  }
+
+  .labs-stat-value {
+    font-size: 1.3rem;
+  }
+
+  /* Cover on top, text below */
+  .store-mini--labs {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+  }
+
+  .store-mini--labs .store-mini-text {
+    padding: 18px 20px 22px;
+  }
+
+  .labs-card-cover {
+    flex: none;
+  }
+
+  .store-mini--labs > svg {
+    display: none;
+  }
+}
+
+/* ============================================
    CONTACT SECTION
    ============================================ */
 .contact-section {

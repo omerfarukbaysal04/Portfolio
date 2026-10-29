@@ -45,6 +45,31 @@ export const translations = {
           desc: 'Get Glide Ball on your Android device from the Google Play Store.',
         },
       },
+      labsCard: {
+        title: 'Web Penetration Testing Lab Reports',
+        desc: 'Pentest-style reports for PortSwigger Web Security Academy labs, grouped by topic.',
+      },
+    },
+    labs: {
+      title: 'Web Penetration Testing Lab Reports',
+      shortTitle: 'Pentest Lab Reports', // hero mini card, must fit on one line
+      titlePre: 'Web Penetration Testing',
+      titleHi: 'Lab Reports',
+      intro:
+        'Pentest-style reports I wrote while solving PortSwigger Web Security Academy labs. Each one covers the finding, its CVSS risk, a step-by-step proof of concept and how to fix it.',
+      note: 'The reports are written in Turkish. Labs from',
+      stats: { reports: 'Reports', topics: 'Topics', source: 'Lab platform' },
+      topics: 'Topics',
+      report: 'report',
+      reports: 'reports',
+      allTopics: 'All Topics',
+      openTab: 'Open in New Tab',
+      download: 'Download',
+      mobileHint: 'PDF preview works best on a larger screen. You can open the report in a new tab.',
+      risk: { critical: 'Critical', high: 'High', medium: 'Medium', low: 'Low' },
+      notFoundPre: 'Topic',
+      notFoundHi: 'Not Found',
+      notFoundText: "The report topic you are looking for doesn't exist.",
     },
     contact: {
       pre: "Let's",
@@ -154,6 +179,31 @@ export const translations = {
           desc: "Glide Ball'u Google Play Store'dan Android cihazına indir.",
         },
       },
+      labsCard: {
+        title: 'Web Sızma Testi Lab Raporları',
+        desc: 'PortSwigger Web Security Academy lablarına ait, konulara göre gruplanmış sızma testi raporları.',
+      },
+    },
+    labs: {
+      title: 'Web Sızma Testi Lab Raporları',
+      shortTitle: 'Pentest Lab Raporları', // hero mini kartı, tek satıra sığmalı
+      titlePre: 'Web Sızma Testi',
+      titleHi: 'Lab Raporları',
+      intro:
+        'PortSwigger Web Security Academy lablarını çözerken yazdığım sızma testi formatındaki raporlar. Her rapor bulguyu, CVSS risk seviyesini, adım adım kavram kanıtını (PoC) ve çözüm önerisini içeriyor.',
+      note: 'Raporlar Türkçe yazılmıştır. Lab platformu:',
+      stats: { reports: 'Rapor', topics: 'Konu', source: 'Lab platformu' },
+      topics: 'Konular',
+      report: 'rapor',
+      reports: 'rapor',
+      allTopics: 'Tüm Konular',
+      openTab: 'Yeni Sekmede Aç',
+      download: 'İndir',
+      mobileHint: 'PDF önizlemesi büyük ekranda daha iyi çalışır. Raporu yeni sekmede açabilirsin.',
+      risk: { critical: 'Kritik', high: 'Yüksek', medium: 'Orta', low: 'Düşük' },
+      notFoundPre: 'Konu',
+      notFoundHi: 'Bulunamadı',
+      notFoundText: 'Aradığın rapor konusu mevcut değil.',
     },
     contact: {
       pre: 'İletişime',

@@ -1,5 +1,6 @@
 // "What I do" slides shown on the right side of the hero.
-// icon: key resolved in HeroStage; projects: slugs from src/data/projects.js.
+// icon: key resolved in HeroStage; projects: slugs from src/data/projects.js,
+// or 'labs' for the lab reports page.
 export const highlights = [
   {
     icon: 'shield',
@@ -8,14 +9,14 @@ export const highlights = [
       tr: 'Sızma testi ve güvenlik araçları',
     },
     desc: {
-      en: 'I build tools that look at networks and systems through an attacker’s eyes to find what is exposed before someone else does.',
-      tr: 'Ağları ve sistemleri saldırgan gözüyle inceleyip açıkları başkasından önce bulan araçlar geliştiriyorum.',
+      en: 'I build tools that look at networks and systems through an attacker’s eyes, and I run penetration tests and write up the findings as professional reports.',
+      tr: 'Ağları ve sistemleri saldırgan gözüyle inceleyen araçlar geliştiriyor; sızma testleri yapıp bulguları profesyonel raporlara dönüştürüyorum.',
     },
     bullets: {
       en: ['Autonomous pentesting with LLM agents', 'Continuous vulnerability & CVE scanning', 'Network access control (AAA / VLAN)'],
       tr: ['LLM ajanlarıyla otonom sızma testi', 'Sürekli zafiyet ve CVE taraması', 'Ağ erişim kontrolü (AAA / VLAN)'],
     },
-    projects: ['pentez-ai', 'the-watchtower', 'cyber-security-tools'],
+    projects: ['pentez-ai', 'the-watchtower', 'labs'],
   },
   {
     icon: 'brain',

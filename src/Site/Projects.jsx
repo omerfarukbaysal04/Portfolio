@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { SiItchdotio } from 'react-icons/si';
 import { FaGooglePlay } from 'react-icons/fa6';
 import { ArrowIcon } from '../components/AnimatedSVGs';
+import { labTopics, reportCount, LABS_COVER } from '../data/labs';
 import FeaturedSlider from '../components/FeaturedSlider';
 import { projects, getProjectThumb } from '../data/projects';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -75,6 +76,31 @@ const StoreCard = ({ store, index }) => {
   );
 };
 
+// Wide card under the cyber cards (cover on the left), linking to the lab reports page.
+const LabsCard = ({ index }) => {
+  const { t } = useLanguage();
+  const c = t.projects.labsCard;
+
+  return (
+    <Link to="/labs" className="store-mini store-mini--labs" style={{ animationDelay: `${index * 0.05}s` }}>
+      <span className="labs-card-cover">
+        <img src={LABS_COVER} alt="" loading="lazy" />
+      </span>
+      <span className="store-mini-text">
+        <span className="store-mini-title">{c.title}</span>
+        <span className="store-mini-desc">{c.desc}</span>
+        <span className="project-tags">
+          <span className="project-tag">{reportCount} {t.labs.stats.reports}</span>
+          {labTopics.map((topic) => (
+            <span key={topic.slug} className="project-tag">{topic.title}</span>
+          ))}
+        </span>
+      </span>
+      <ArrowIcon />
+    </Link>
+  );
+};
+
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState(categoryTabs[0]);
   const { t } = useLanguage();
@@ -117,6 +143,12 @@ const Projects = () => {
             {stores.map((store, i) => (
               <StoreCard key={store.key} store={store} index={list.length + i} />
             ))}
+          </div>
+        )}
+
+        {activeCategory === 'cyber' && (
+          <div className="store-row store-row--single">
+            <LabsCard index={list.length} />
           </div>
         )}
       </div>
