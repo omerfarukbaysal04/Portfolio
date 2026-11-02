@@ -79,7 +79,7 @@ const ProjectDetail = () => {
 
           <div className="project-detail-media glass-card">
             {media?.type === 'video' ? (
-              <LazyVideo src={media.src} title={title} />
+              <LazyVideo src={media.src} poster={media.poster} title={title} />
             ) : media?.type === 'image' ? (
               <img src={media.src} alt={title} />
             ) : null}

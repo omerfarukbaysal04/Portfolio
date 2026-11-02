@@ -1,14 +1,15 @@
 import { useState } from 'react';
 
-// Lightweight YouTube facade: shows the video thumbnail until the user clicks,
-// then loads the real iframe (with autoplay). Avoids loading several heavy
-// YouTube embeds on page load.
-const LazyVideo = ({ src, title }) => {
+// Lightweight video facade: shows the thumbnail until the user clicks, then
+// loads the real iframe (with autoplay where the player supports it). Avoids
+// loading several heavy embeds on page load. YouTube thumbnails come from the
+// video id; other players (Google Drive) pass a `poster` image.
+const LazyVideo = ({ src, title, poster }) => {
   const [activated, setActivated] = useState(false);
-  const videoId = (src.match(/embed\/([^?/]+)/) || [])[1];
-  const thumbnail = videoId
+  const videoId = (src.match(/youtube\.com\/embed\/([^?/]+)/) || [])[1];
+  const thumbnail = poster || (videoId
     ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-    : null;
+    : null);
 
   if (activated) {
     const playSrc = src + (src.includes('?') ? '&' : '?') + 'autoplay=1&mute=1';

@@ -132,7 +132,7 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className={`projects-grid${isGame ? ' projects-grid--game' : ''}`} key={activeCategory}>
+        <div className={`projects-grid${list.length === 4 ? ' projects-grid--four' : ''}`} key={activeCategory}>
           {list.map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}

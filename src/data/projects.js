@@ -13,6 +13,8 @@
 //   category    (required) one of: 'cyber' | 'game' | 'web'
 //   tagline     (required) { en, tr } short one-liner shown on the card
 //   media       (required) { type: 'video' | 'image', src: '...' }
+//               video src is a YouTube or Google Drive embed URL; Drive videos
+//               need a `poster` image (YouTube ones use their own thumbnail)
 //   tech        (required) array of tech/tag strings (not translated)
 //   links       (required) array of { label: { en, tr }, url, type }
 //   overview    (optional) { en, tr } longer intro (defaults to tagline)
@@ -240,6 +242,51 @@ export const projects = [
     gallery: [],
   },
   {
+    slug: 'teknopanorama',
+    title: 'Teknopanorama',
+    category: 'cyber',
+    tagline: {
+      en: 'A security-awareness demo disguised as a tech news site: visitors safely fall for 8 real web attacks and learn how to protect themselves after each one.',
+      tr: 'Teknoloji haber sitesi kılığında bir güvenlik farkındalık demosu: ziyaretçi 8 gerçek web saldırısına zararsızca düşer ve her birinden sonra nasıl korunacağını öğrenir.',
+    },
+    overview: {
+      en: 'Teknopanorama looks like an ordinary technology news site, but it is a victim-focused security-awareness tool built during my internship. While visitors simply read the news, search or click a link, they are harmlessly exposed to real web attacks — and right after each one an awareness screen explains what just happened and how to stay safe. The traps are planted in pre-seeded comments that match the stories they sit under, so the attacks trigger naturally while reading. A SAFE_MODE switch turns on each attack’s own defense, showing the vulnerable and the patched version side by side. All vulnerabilities are isolated and harmless; no real data is stolen or sent anywhere.',
+      tr: 'Teknopanorama sıradan bir teknoloji haber sitesi gibi görünür; aslında stajım sırasında geliştirdiğim, kurban odaklı bir güvenlik farkındalık aracıdır. Ziyaretçi yalnızca haber okurken, arama yaparken ya da bir linke tıklarken gerçek web saldırılarına zararsızca maruz kalır; her saldırıdan hemen sonra bir farkındalık ekranı az önce ne olduğunu ve nasıl korunacağını anlatır. Tuzaklar, altında durdukları haberin konusuyla eşleşen önceden eklenmiş yorumlara gizlenmiştir; böylece saldırılar okurken kendiliğinden tetiklenir. SAFE_MODE anahtarı her saldırının kendi savunmasını açar ve yamasız ile yamalı hali yan yana gösterir. Tüm zafiyetler izole ve zararsızdır; hiçbir gerçek veri çalınmaz veya dışarı gönderilmez.',
+    },
+    media: {
+      type: 'video',
+      src: 'https://drive.google.com/file/d/1IoW48VgkpE9aRFCIPgjCMVg1JQaOE69y/preview',
+      poster: '/teknopanorama.jpg',
+    },
+    tech: ['React', 'FastAPI', 'Python', 'Jinja2', 'Vite', 'Web Security'],
+    links: [
+      { label: { en: 'View on GitHub', tr: "GitHub'da Gör" }, url: 'https://github.com/omerfarukbaysal04/intern-web-project', type: 'github' },
+      { label: { en: 'Watch Demo Video', tr: 'Tanıtım Videosunu İzle' }, url: 'https://drive.google.com/file/d/1IoW48VgkpE9aRFCIPgjCMVg1JQaOE69y/view', type: 'video' },
+    ],
+    features: {
+      en: [
+        '8 real attacks: Reflected, Stored and DOM-based XSS, Clickjacking, CSRF, Open Redirect, Reverse Tabnabbing and Malvertising',
+        'Traps hidden in pre-seeded comments that match each story’s topic, triggered just by reading',
+        'An awareness screen after every attack explaining what happened and how to stay safe',
+        'Progress board ("3 of 8") with a live counter and hints for the remaining attacks',
+        'SAFE_MODE: each attack’s own defense (escaping, whitelist sanitizing, CSRF tokens, X-Frame-Options, redirect validation, rel="noopener")',
+        'React (Vite) shell for the safe side, FastAPI + Jinja2 server-rendered pages for the vulnerable side',
+      ],
+      tr: [
+        '8 gerçek saldırı: Reflected, Stored ve DOM-based XSS, Clickjacking, CSRF, Open Redirect, Reverse Tabnabbing ve Malvertising',
+        'Haberin konusuyla eşleşen, önceden eklenmiş yorumlara gizlenmiş ve yalnızca okurken tetiklenen tuzaklar',
+        'Her saldırıdan sonra ne olduğunu ve nasıl korunulacağını anlatan farkındalık ekranı',
+        'Canlı sayaç ve kalan saldırılar için ipuçlarıyla ilerleme panosu ("8\'de 3")',
+        'SAFE_MODE: her saldırının kendi savunması (escape, beyaz-liste temizleme, CSRF token, X-Frame-Options, yönlendirme doğrulama, rel="noopener")',
+        'Güvenli taraf için React (Vite) kabuğu, zafiyetli taraf için FastAPI + Jinja2 sunucu-render\'lı sayfalar',
+      ],
+    },
+    role: { en: 'Intern Developer', tr: 'Stajyer Geliştirici' },
+    status: { en: 'Internship Project', tr: 'Staj Projesi' },
+    year: '2026',
+    gallery: [],
+  },
+  {
     slug: 'cyber-security-tools',
     title: 'Cyber Security Tools',
     category: 'cyber',
@@ -425,10 +472,11 @@ export const getProjectBySlug = (slug) => projects.find((p) => p.slug === slug);
 // Featured projects shown in the projects slider, in this order.
 export const featuredSlugs = ['pentez-ai', 'tanilog', 'glide-ball', 'stajio', 'the-watchtower', 'cost-of-redemption', 'apart-ai'];
 
-// Card cover: image media directly, or the YouTube thumbnail for video projects.
+// Card cover: image media directly, the video's poster, or the YouTube thumbnail.
 // size 'large' uses the 1280x720 thumbnail (for big slides); default is 320x180.
 export const getProjectThumb = (p, size) => {
   if (p.media?.type === 'image') return p.media.src;
+  if (p.media?.poster) return p.media.poster;
   const id = (p.media?.src?.match(/embed\/([^?/]+)/) || [])[1];
   if (!id) return null;
   return `https://img.youtube.com/vi/${id}/${size === 'large' ? 'maxresdefault' : 'mqdefault'}.jpg`;
