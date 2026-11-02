@@ -64,6 +64,20 @@ export const labTopics = [
     ],
   },
   {
+    slug: 'authentication',
+    title: 'Authentication',
+    cwe: 'CWE-287',
+    desc: {
+      en: 'Username enumeration, 2FA bypass and flawed password reset logic.',
+      tr: 'Kullanıcı adı tespiti (enumeration), 2FA atlatma ve hatalı parola sıfırlama mantığı.',
+    },
+    reports: [
+      { title: 'Username enumeration via different and subtly different responses', file: '/reports/authentication/username-enumeration.pdf', risk: 'medium', cvss: '5.3' },
+      { title: '2FA simple bypass', file: '/reports/authentication/2fa-simple-bypass.pdf', risk: 'high', cvss: '7.4' },
+      { title: 'Password reset broken logic & poisoning via middleware', file: '/reports/authentication/password-reset.pdf', risk: 'critical', cvss: '9.1' },
+    ],
+  },
+  {
     slug: 'information-disclosure',
     title: 'Information Disclosure',
     cwe: 'CWE-200',
