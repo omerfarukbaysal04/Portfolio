@@ -10,18 +10,18 @@ export const translations = {
     },
     hero: {
       description:
-        'Computer Engineering graduate from Pamukkale University. I work on web application security and penetration testing, and build AI-powered full-stack web apps.',
+        'Computer Engineering graduate from Pamukkale University. I build across three fields: games in Unity, LLM-powered full-stack web apps and Python-based cybersecurity tools.',
     },
     about: {
       pre: 'About',
       hi: 'Me',
-      p1: "I'm a Computer Engineering graduate from Pamukkale University, focused on web application security. During my web penetration testing internship at BTYÖN, I turned PortSwigger Web Security Academy labs into 25 pentest reports with CVSS v3.1 scoring, and built Teknopanorama, a security-awareness platform that shows web attacks side by side with their defenses. For my graduation thesis I designed PENTEZ-AI, an LLM-driven autonomous penetration testing tool for smart traffic infrastructure.",
-      p2a: "I also build AI-powered full-stack web apps, and I enjoy developing games with Unity. I've made four games so far; one of them is published on the ",
+      p1: "I'm a Computer Engineering graduate from Pamukkale University. A passion for creating things and telling stories has driven me since childhood, and it led me to game development, web development and cybersecurity. What I enjoy most is turning what I learn into something concrete and functional.",
+      p2a: "Game development is my main passion. I'm a graduate of the 3rd term of the Google Games and Apps Academy, and I design story-driven and physics-based games in Unity. I've made four games so far; one of them is published on the ",
       p2LinkGooglePlay: 'Google Play Store',
       p2b: ", and I publish the rest on ",
       p2LinkItch: 'itch.io',
-      p2c: '.',
-      p3: 'My goal is to grow in application security and secure software development, combining continuous learning with hands-on work, while still making the creative projects that fuel my passion for technology.',
+      p2c: ".",
+      p3: "Alongside games, I build LLM-powered full-stack web apps such as TanıLog, ApartAI and Stajio, all live. On the security side, during my web penetration testing internship at BTYÖN I turned PortSwigger Web Security Academy labs into 25 pentest reports with CVSS v3.1 scoring and built Teknopanorama, a security-awareness platform; for my graduation thesis I designed PENTEZ-AI, an LLM-driven autonomous penetration testing tool.",
     },
     projects: {
       pre: 'My',
@@ -92,11 +92,12 @@ export const translations = {
       hi: 'am I?',
       role: 'Computer Engineering graduate · Pamukkale University',
       summary:
-        'I focus on web application security and penetration testing, and turn what I learn into tools and products: AI-powered full-stack web apps and an LLM-driven pentest tool. Outside security, I build games with Unity.',
+        "A passion for creating things and telling stories has driven me since childhood, which led me to game development, cybersecurity and web development. Game development is my main passion; alongside it, I've built LLM-powered full-stack web projects and Python-based cybersecurity tools. What I enjoy most is turning what I learn into something concrete and functional.",
       facts: [
         'Computer Engineering graduate, Pamukkale University',
-        'Web pentest internship · 25 lab reports',
         '4 published games on Google Play and itch.io',
+        '3 live full-stack web apps: TanıLog, ApartAI, Stajio',
+        'Web pentest internship · 25 lab reports',
       ],
       more: 'Read more about me',
     },
@@ -144,18 +145,18 @@ export const translations = {
     },
     hero: {
       description:
-        'Pamukkale Üniversitesi Bilgisayar Mühendisliği mezunuyum. Web uygulama güvenliği ve sızma testi üzerine çalışıyor, yapay zekâ destekli full-stack web uygulamaları geliştiriyorum.',
+        'Pamukkale Üniversitesi Bilgisayar Mühendisliği mezunuyum. Üç alanda üretiyorum: Unity ile oyunlar, LLM destekli full-stack web uygulamaları ve Python tabanlı siber güvenlik araçları.',
     },
     about: {
       pre: 'Hakkımda',
       hi: '',
-      p1: "Pamukkale Üniversitesi Bilgisayar Mühendisliği mezunuyum. BTYÖN'deki web sızma testi stajımda PortSwigger Web Security Academy lablarını CVSS v3.1 puanlamalı 25 sızma testi raporuna dönüştürdüm ve web saldırılarını savunmalarıyla birlikte gösteren Teknopanorama adlı bir güvenlik farkındalık platformu geliştirdim. Bitirme tezimde akıllı trafik altyapıları için LLM destekli otonom bir sızma testi aracı olan PENTEZ-AI'ı tasarladım.",
-      p2a: 'Bunların yanında yapay zekâ destekli full-stack web uygulamaları geliştiriyor, Unity ile oyun yapmaktan da keyif alıyorum. Şu ana kadar dört oyun yaptım; bunlardan biri ',
+      p1: "Pamukkale Üniversitesi Bilgisayar Mühendisliği mezunuyum. Çocukluğumdan beri bir şeyler yaratma ve hikâye anlatma tutkusu beni motive ediyor; bu tutku beni oyun geliştirme, web geliştirme ve siber güvenlik alanlarına yöneltti. En çok zevk aldığım şey, öğrendiklerimi somut ve işlevsel bir şeye dönüştürmek.",
+      p2a: "Ana tutku alanım oyun geliştirme. Google Oyun ve Uygulama Akademisi'nin 3. dönem mezunuyum ve Unity ile hikâye odaklı ve fizik tabanlı oyunlar tasarlıyorum. Şu ana kadar dört oyun yaptım; bunlardan biri ",
       p2LinkGooglePlay: 'Google Play Store',
       p2b: "'da yayında, diğerlerini ",
       p2LinkItch: 'itch.io',
       p2c: " üzerinde yayınlıyorum.",
-      p3: 'Hedefim, sürekli öğrenmeyi uygulamalı çalışmayla birleştirerek uygulama güvenliği ve güvenli yazılım geliştirme alanında ilerlemek; aynı zamanda teknolojiye olan tutkumu besleyen yaratıcı projeler üretmeye devam etmek.',
+      p3: "Bunun yanında TanıLog, ApartAI ve Stajio gibi LLM destekli full-stack web uygulamaları geliştirip yayına aldım. Siber güvenlik tarafında ise BTYÖN'deki web sızma testi stajımda PortSwigger Web Security Academy lablarını CVSS v3.1 puanlamalı 25 sızma testi raporuna dönüştürdüm ve Teknopanorama adlı bir güvenlik farkındalık platformu geliştirdim; bitirme tezimde de LLM destekli otonom bir sızma testi aracı olan PENTEZ-AI'ı tasarladım.",
     },
     projects: {
       pre: 'Projelerim',
@@ -226,11 +227,12 @@ export const translations = {
       hi: 'Kimim?',
       role: 'Bilgisayar Mühendisliği mezunu · Pamukkale Üniversitesi',
       summary:
-        'Odağım web uygulama güvenliği ve sızma testi; öğrendiklerimi araçlara ve ürünlere dönüştürüyorum: yapay zekâ destekli full-stack web uygulamaları ve LLM destekli bir sızma testi aracı. Güvenliğin dışında Unity ile oyun geliştiriyorum.',
+        'Çocukluğumdan beri bir şeyler yaratma ve hikâye anlatma tutkusu beni motive ediyor; bu tutku beni oyun geliştirme, siber güvenlik ve web geliştirme alanlarına yöneltti. Ana tutku alanım oyun geliştirme; bunun yanında LLM destekli full-stack web projeleri ve Python tabanlı siber güvenlik araçları geliştirdim. En çok zevk aldığım şey, öğrendiklerimi somut ve işlevsel bir şeye dönüştürmek.',
       facts: [
         'Bilgisayar Mühendisliği mezunu, Pamukkale Üniversitesi',
-        'Web sızma testi stajı · 25 lab raporu',
         "Google Play ve itch.io'da 4 yayınlanmış oyun",
+        'Canlıda 3 full-stack web uygulaması: TanıLog, ApartAI, Stajio',
+        'Web sızma testi stajı · 25 lab raporu',
       ],
       more: 'Hakkımda devamını oku',
     },

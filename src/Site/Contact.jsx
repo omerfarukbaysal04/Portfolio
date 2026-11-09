@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaYoutube, FaTwitter, FaLinkedin } from 'react-icons/fa';
-import { FaGraduationCap, FaShieldHalved, FaGamepad } from 'react-icons/fa6';
+import { FaGraduationCap, FaShieldHalved, FaGamepad, FaCode } from 'react-icons/fa6';
 import { SiItchdotio } from 'react-icons/si';
 import { ArrowIcon, MailIcon } from '../components/AnimatedSVGs';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -14,7 +14,7 @@ const socials = [
   { icon: <SiItchdotio />, href: 'https://baysalgames.itch.io', label: 'itch.io' },
 ];
 
-const factIcons = [<FaGraduationCap key="edu" />, <FaShieldHalved key="sec" />, <FaGamepad key="game" />];
+const factIcons = [<FaGraduationCap key="edu" />, <FaGamepad key="game" />, <FaCode key="web" />, <FaShieldHalved key="sec" />];
 
 // "Who am I?" — a short summary of the About page; the navbar's About link scrolls here.
 const WhoAmI = () => {
