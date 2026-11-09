@@ -11,12 +11,14 @@ import AboutPage from './pages/AboutPage'
 import ProjectDetail from './pages/ProjectDetail'
 import NotFound from './pages/NotFound'
 import { LabsHome, LabTopic } from './pages/Labs'
+import { categories, categoryPath } from './data/projects'
 
-// Scroll to top on route change, unless we're navigating to a specific section.
+// Scroll to top on route change, unless we're navigating to a specific section
+// or switching project tabs (keepScroll).
 function ScrollRestoration() {
   const location = useLocation();
   useEffect(() => {
-    if (!location.state?.scrollTo) {
+    if (!location.state?.scrollTo && !location.state?.keepScroll) {
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
   }, [location.pathname, location.state]);
@@ -33,6 +35,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Home />} />
+        {categories.map((key) => (
+          <Route key={key} path={categoryPath(key)} element={<Home />} />
+        ))}
         <Route path="/about" element={<AboutPage />} />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
         <Route path="/labs" element={<LabsHome />} />

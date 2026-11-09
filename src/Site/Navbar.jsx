@@ -21,7 +21,8 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { t } = useLanguage();
-  const isHome = location.pathname === '/' || location.pathname === '/projects';
+  // Home page URLs: "/", "/projects" and the tab URLs ("/projects-web"), not project details
+  const isHome = location.pathname === '/' || /^\/projects(-[a-z]+)?$/.test(location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {

@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { projects, getProjectThumb } from './src/data/projects.js'
+import { projects, getProjectThumb, categories, categoryPath } from './src/data/projects.js'
 import { translations } from './src/i18n/translations.js'
 import { labTopics, LABS_COVER } from './src/data/labs.js'
 
@@ -18,6 +18,7 @@ const sitemap = () => ({
     const paths = [
       '/',
       '/about',
+      ...categories.map(categoryPath),
       ...projects.map((p) => `/projects/${p.slug}`),
       '/labs',
       ...labTopics.map((topic) => `/labs/${topic.slug}`),
@@ -36,7 +37,7 @@ const escapeHtml = (s) =>
 
 // Link previews (LinkedIn, WhatsApp, X…) don't run JavaScript, so they only see
 // the meta tags in the HTML file itself. This writes a copy of index.html for
-// /about, /labs, every /labs/<topic> and every /projects/<slug> with that page's title, description, URL
+// /about, each /projects-<tab>, /labs, every /labs/<topic> and every /projects/<slug> with that page's title, description, URL
 // and image filled in. Netlify serves about.html at /about before falling back
 // to the SPA redirect; the React app then takes over as usual.
 const pageMeta = () => ({
@@ -54,6 +55,16 @@ const pageMeta = () => ({
         title: `${translations.en.nav.about} | ${NAME}`,
         description: translations.en.whoami.summary,
       },
+      ...categories.map((key) => {
+        const name = translations.en.projects.categories[key]
+        const titles = projects.filter((p) => p.category === key).map((p) => p.title)
+        return {
+          file: `${categoryPath(key).slice(1)}.html`,
+          path: categoryPath(key),
+          title: `${name} | ${NAME}`,
+          description: `${name} projects: ${titles.join(', ')}.`,
+        }
+      }),
       // Written twice: /labs sits next to the labs/ folder of topic pages, so
       // either file may be the one Netlify serves for it
       ...['labs.html', 'labs/index.html'].map((file) => ({

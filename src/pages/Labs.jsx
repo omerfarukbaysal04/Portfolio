@@ -1,5 +1,6 @@
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { labTopics, reportCount, LABS_URL } from '../data/labs';
+import { categoryPath } from '../data/projects';
 import { ArrowIcon, useScrollReveal } from '../components/AnimatedSVGs';
 import { usePageMeta } from '../components/usePageMeta';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -41,7 +42,7 @@ export const LabsHome = () => {
   return (
     <section className="section project-detail labs-page">
       <div className="container">
-        <BackLink to="/projects">{t.detail.back}</BackLink>
+        <BackLink to={categoryPath('cyber')}>{t.detail.back}</BackLink>
 
         <header className="labs-hero reveal">
           <div>

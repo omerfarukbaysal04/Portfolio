@@ -469,6 +469,13 @@ export const projects = [
 
 export const getProjectBySlug = (slug) => projects.find((p) => p.slug === slug);
 
+// Project tabs on the home page, in order. Each tab has its own URL
+// (/projects-cyber, /projects-game, /projects-web); plain /projects opens the first.
+export const categories = ['cyber', 'game', 'web'];
+export const categoryPath = (key) => `/projects-${key}`;
+export const categoryFromPath = (pathname) =>
+  categories.find((key) => pathname === categoryPath(key)) || categories[0];
+
 // Featured projects shown in the projects slider, in this order.
 export const featuredSlugs = ['pentez-ai', 'tanilog', 'glide-ball', 'stajio', 'the-watchtower', 'cost-of-redemption', 'apart-ai'];
 

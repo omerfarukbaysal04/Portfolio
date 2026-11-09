@@ -1,14 +1,11 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { SiItchdotio } from 'react-icons/si';
 import { FaGooglePlay } from 'react-icons/fa6';
 import { ArrowIcon } from '../components/AnimatedSVGs';
 import { labTopics, reportCount, LABS_COVER } from '../data/labs';
 import FeaturedSlider from '../components/FeaturedSlider';
-import { projects, getProjectThumb } from '../data/projects';
+import { projects, getProjectThumb, categories, categoryPath, categoryFromPath } from '../data/projects';
 import { useLanguage } from '../i18n/LanguageContext';
-
-const categoryTabs = ['cyber', 'game', 'web'];
 
 // Store pages shown as cards in the Game Development tab.
 const stores = [
@@ -102,8 +99,13 @@ const LabsCard = ({ index }) => {
 };
 
 const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState(categoryTabs[0]);
   const { t } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
+  // The active tab lives in the URL (/projects-web …) so each one can be linked.
+  const activeCategory = categoryFromPath(location.pathname);
+  const selectCategory = (key) =>
+    navigate(categoryPath(key), { replace: true, state: { keepScroll: true } });
 
   const list = projects.filter((p) => p.category === activeCategory);
   const isGame = activeCategory === 'game';
@@ -120,12 +122,13 @@ const Projects = () => {
         <FeaturedSlider />
 
         <div className="project-categories reveal">
-          {categoryTabs.map((key) => (
+          {categories.map((key) => (
             <button
               key={key}
               type="button"
               className={`category-btn${activeCategory === key ? ' active' : ''}`}
-              onClick={() => setActiveCategory(key)}
+              aria-pressed={activeCategory === key}
+              onClick={() => selectCategory(key)}
             >
               {t.projects.categories[key]}
             </button>

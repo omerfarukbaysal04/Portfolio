@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { getProjectBySlug } from '../data/projects';
+import { getProjectBySlug, categoryPath } from '../data/projects';
 import { useScrollReveal } from '../components/AnimatedSVGs';
 import { usePageMeta } from '../components/usePageMeta';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -41,7 +41,7 @@ const ProjectDetail = () => {
     <section className="section project-detail">
       <ProjectMeta project={project} />
       <div className="container">
-        <Link to="/projects" className="project-detail-back">
+        <Link to={categoryPath(category)} className="project-detail-back">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="19" y1="12" x2="5" y2="12" />
             <polyline points="12 19 5 12 12 5" />
