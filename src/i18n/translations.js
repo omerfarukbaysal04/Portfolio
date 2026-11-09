@@ -10,18 +10,18 @@ export const translations = {
     },
     hero: {
       description:
-        'Computer Engineering student at Pamukkale University, passionate about building cybersecurity tools and immersive game experiences.',
+        'Computer Engineering graduate from Pamukkale University. I work on web application security and penetration testing, and build AI-powered full-stack web apps.',
     },
     about: {
       pre: 'About',
       hi: 'Me',
-      p1: "I'm a Computer Engineering student at Pamukkale University with a strong focus on cybersecurity. I'm actively improving my skills through courses and hands-on projects, with interests in networking, incident analysis, and penetration testing.",
-      p2a: "Beyond security, I also enjoy developing games with Unity. So far, I've created four personal games, and one of them is published on the ",
+      p1: "I'm a Computer Engineering graduate from Pamukkale University, focused on web application security. During my web penetration testing internship at BTYÖN, I turned PortSwigger Web Security Academy labs into 25 pentest reports with CVSS v3.1 scoring, and built Teknopanorama, a security-awareness platform that shows web attacks side by side with their defenses. For my graduation thesis I designed PENTEZ-AI, an LLM-driven autonomous penetration testing tool for smart traffic infrastructure.",
+      p2a: "I also build AI-powered full-stack web apps, and I enjoy developing games with Unity. I've made four games so far; one of them is published on the ",
       p2LinkGooglePlay: 'Google Play Store',
-      p2b: ". I've also built two personal websites and publish my games on ",
+      p2b: ", and I publish the rest on ",
       p2LinkItch: 'itch.io',
       p2c: '.',
-      p3: 'My goal is to build a career in cybersecurity, combining continuous learning with practical experience, while also pursuing creative projects that fuel my passion for technology.',
+      p3: 'My goal is to grow in application security and secure software development, combining continuous learning with hands-on work, while still making the creative projects that fuel my passion for technology.',
     },
     projects: {
       pre: 'My',
@@ -90,12 +90,12 @@ export const translations = {
     whoami: {
       pre: 'Who',
       hi: 'am I?',
-      role: 'Computer Engineering student · Pamukkale University',
+      role: 'Computer Engineering graduate · Pamukkale University',
       summary:
-        'I focus on cybersecurity — networking, incident analysis and penetration testing — and turn what I learn into tools and products. Outside security, I build games with Unity.',
+        'I focus on web application security and penetration testing, and turn what I learn into tools and products: AI-powered full-stack web apps and an LLM-driven pentest tool. Outside security, I build games with Unity.',
       facts: [
-        'Computer Engineering, Pamukkale University',
-        'Cybersecurity & penetration testing',
+        'Computer Engineering graduate, Pamukkale University',
+        'Web pentest internship · 25 lab reports',
         '4 published games on Google Play and itch.io',
       ],
       more: 'Read more about me',
@@ -144,18 +144,18 @@ export const translations = {
     },
     hero: {
       description:
-        'Pamukkale Üniversitesi Bilgisayar Mühendisliği öğrencisiyim; siber güvenlik alanında kendimi geliştiriyorum ve oyun geliştirmekle ilgileniyorum.',
+        'Pamukkale Üniversitesi Bilgisayar Mühendisliği mezunuyum. Web uygulama güvenliği ve sızma testi üzerine çalışıyor, yapay zekâ destekli full-stack web uygulamaları geliştiriyorum.',
     },
     about: {
       pre: 'Hakkımda',
       hi: '',
-      p1: 'Pamukkale Üniversitesi Bilgisayar Mühendisliği öğrencisiyim ve siber güvenliğe yoğun bir ilgi duyuyorum. Ağ teknolojileri, olay analizi ve sızma testi alanlarına ilgi duyarak kendimi dersler ve uygulamalı projelerle aktif olarak geliştiriyorum.',
-      p2a: 'Güvenliğin yanı sıra Unity ile oyun geliştirmekten de keyif alıyorum. Şu ana kadar dört kişisel oyun yaptım ve bunlardan biri ',
+      p1: "Pamukkale Üniversitesi Bilgisayar Mühendisliği mezunuyum. BTYÖN'deki web sızma testi stajımda PortSwigger Web Security Academy lablarını CVSS v3.1 puanlamalı 25 sızma testi raporuna dönüştürdüm ve web saldırılarını savunmalarıyla birlikte gösteren Teknopanorama adlı bir güvenlik farkındalık platformu geliştirdim. Bitirme tezimde akıllı trafik altyapıları için LLM destekli otonom bir sızma testi aracı olan PENTEZ-AI'ı tasarladım.",
+      p2a: 'Bunların yanında yapay zekâ destekli full-stack web uygulamaları geliştiriyor, Unity ile oyun yapmaktan da keyif alıyorum. Şu ana kadar dört oyun yaptım; bunlardan biri ',
       p2LinkGooglePlay: 'Google Play Store',
-      p2b: "'da yayında. Ayrıca iki kişisel web sitesi geliştirdim ve oyunlarımı ",
+      p2b: "'da yayında, diğerlerini ",
       p2LinkItch: 'itch.io',
       p2c: " üzerinde yayınlıyorum.",
-      p3: 'Hedefim, sürekli öğrenmeyi pratik deneyimle birleştirerek siber güvenlik alanında bir kariyer inşa etmek; aynı zamanda teknolojiye olan tutkumu besleyen yaratıcı projeler üretmeye devam etmek.',
+      p3: 'Hedefim, sürekli öğrenmeyi uygulamalı çalışmayla birleştirerek uygulama güvenliği ve güvenli yazılım geliştirme alanında ilerlemek; aynı zamanda teknolojiye olan tutkumu besleyen yaratıcı projeler üretmeye devam etmek.',
     },
     projects: {
       pre: 'Projelerim',
@@ -224,12 +224,12 @@ export const translations = {
     whoami: {
       pre: 'Ben',
       hi: 'Kimim?',
-      role: 'Bilgisayar Mühendisliği öğrencisi · Pamukkale Üniversitesi',
+      role: 'Bilgisayar Mühendisliği mezunu · Pamukkale Üniversitesi',
       summary:
-        'Odağım siber güvenlik: ağ güvenliği, olay analizi ve sızma testi üzerine çalışıyor, öğrendiklerimi araçlara ve ürünlere dönüştürüyorum. Güvenliğin dışında Unity ile oyun geliştiriyorum.',
+        'Odağım web uygulama güvenliği ve sızma testi; öğrendiklerimi araçlara ve ürünlere dönüştürüyorum: yapay zekâ destekli full-stack web uygulamaları ve LLM destekli bir sızma testi aracı. Güvenliğin dışında Unity ile oyun geliştiriyorum.',
       facts: [
-        'Bilgisayar Mühendisliği, Pamukkale Üniversitesi',
-        'Siber güvenlik ve sızma testi',
+        'Bilgisayar Mühendisliği mezunu, Pamukkale Üniversitesi',
+        'Web sızma testi stajı · 25 lab raporu',
         "Google Play ve itch.io'da 4 yayınlanmış oyun",
       ],
       more: 'Hakkımda devamını oku',

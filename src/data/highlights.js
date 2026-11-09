@@ -13,8 +13,8 @@ export const highlights = [
       tr: 'Ağları ve sistemleri saldırgan gözüyle inceleyen araçlar geliştiriyor; sızma testleri yapıp bulguları profesyonel raporlara dönüştürüyorum.',
     },
     bullets: {
-      en: ['Autonomous pentesting with LLM agents', 'Continuous vulnerability & CVE scanning', 'Network access control (AAA / VLAN)'],
-      tr: ['LLM ajanlarıyla otonom sızma testi', 'Sürekli zafiyet ve CVE taraması', 'Ağ erişim kontrolü (AAA / VLAN)'],
+      en: ['Autonomous pentesting with LLM agents', 'Continuous vulnerability & CVE scanning', 'Web pentest reports with CVSS v3.1 scoring'],
+      tr: ['LLM ajanlarıyla otonom sızma testi', 'Sürekli zafiyet ve CVE taraması', 'CVSS v3.1 puanlamalı web sızma testi raporları'],
     },
     projects: ['pentez-ai', 'the-watchtower', 'labs'],
   },
